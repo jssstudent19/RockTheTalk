@@ -1,0 +1,241 @@
+// Member data for Rock The Talk club
+export interface Member {
+  name: string;
+  role: string;
+  bio: string;
+  photo: string;
+  isOfficer?: boolean;
+  term?: string;
+  contestWin?: string;
+  award?: string;
+}
+
+export const members: Member[] = [
+  {
+    name: "Arogya Das Daniel",
+    role: "Immediate Past President · Sr. Program Manager",
+    bio: "RTT gave me the confidence to grow, strengthen my communication and leadership skills, and provided opportunities to mentor others. Just walk into one meeting — the real journey begins the moment you step onto the stage.",
+    photo: "/images/members/Arogya Das Daniel.jpg",
+    isOfficer: true,
+    award: "R.E.E.L Award",
+  },
+  {
+    name: "Taksha Yadav",
+    role: "President · Editor",
+    bio: "Co-creator of the Twilight Team's creative vision. Contest champion — Area Level Winner for Evaluations, represented the club at Division level.",
+    photo: "/images/members/Taksha.png",
+    isOfficer: true,
+    contestWin: "Evaluations Contest – Division Level",
+  },
+  {
+    name: "Rajkumar Gupta",
+    role: "Member",
+    bio: "The club has helped me connect with diverse professionals, exchange cross-cultural insights, and refine my mentoring approach. Dive in — it's a game-changer for building confidence and lasting networks!",
+    photo: "/images/members/Rajkumar.png",
+    isOfficer: false,
+    contestWin: "International Speech Contest – Division Level",
+    award: "PR–Essence Award",
+  },
+  {
+    name: "Kritika Sobti",
+    role: "Sr. Security Researcher",
+    bio: "Rock The Talk has been more than just a club — a fearless environment where members are empowered to experiment, stumble, and succeed. Nine years and counting.",
+    photo: "/images/members/Kritika.webp",
+    isOfficer: false,
+  },
+  {
+    name: "Satrajit Kar",
+    role: "Sr. Manager, Technical Support",
+    bio: "I've become a much more confident speaker and storyteller, which has helped me attain many personal goals. The club provides a supportive community of like-minded members.",
+    photo: "/images/members/Satrajit.png",
+    isOfficer: false,
+    contestWin: "Humorous Speech Contest – Area Level",
+  },
+  {
+    name: "Mrinalini Sarabada",
+    role: "Member",
+    bio: "Third position at Area level contest for Table Topics. A journey of growing confidence and fearless expression.",
+    photo: "/images/members/Mrinalini.jpg",
+    isOfficer: false,
+    contestWin: "Table Topics – 3rd Place, Area Level",
+    award: "Echos Award",
+  },
+  {
+    name: "Nandini NR",
+    role: "VP – Education",
+    bio: "Driving the educational agenda and empowering members on their Pathways journey every single week.",
+    photo: "/images/members/Nandini.jpg",
+    isOfficer: true,
+    term: "Both Terms",
+  },
+  {
+    name: "Preetham G",
+    role: "VP – Public Relations · Content & Designer",
+    bio: "As a Project Manager Apprentice, my goal is to master stakeholder communication — presenting updates and resolving conflicts with clarity. Twilight Team co-creator.",
+    photo: "/images/members/Preetham.jpeg",
+    isOfficer: true,
+    term: "Jan–Jul 2026",
+  },
+  {
+    name: "Jatin Kumar",
+    role: "VP – Public Relations",
+    bio: "Amplifying the club's voice and bringing its story to the world, one post and meeting at a time.",
+    photo: "/images/members/Jatin.png",
+    isOfficer: true,
+    term: "Jul–Dec 2025",
+  },
+  {
+    name: "Adithya Verma",
+    role: "Secretary · VP – Membership",
+    bio: "Keeping the engine running with precision and care — every member's journey begins with a warm welcome.",
+    photo: "/images/members/Adithya.jpg",
+    isOfficer: true,
+    term: "Both Terms",
+  },
+  {
+    name: "Adarsh Anand",
+    role: "Secretary",
+    bio: "My specific goal is to transform technical precision into vocal power, gaining the leadership presence needed to translate complex engineering insights into simple ones.",
+    photo: "/images/members/Adarsh.webp",
+    isOfficer: true,
+    term: "Jan–Jul 2026",
+  },
+  {
+    name: "Jaishankar U",
+    role: "Treasurer",
+    bio: "Ensuring the club's financial health so every member can focus on what matters — speaking, growing, and leading.",
+    photo: "/images/members/Jaishankar.jpg",
+    isOfficer: true,
+    term: "Jul–Dec 2025",
+  },
+  {
+    name: "Nagashree NR",
+    role: "Treasurer",
+    bio: "Bringing precision and accountability to the club's resources — because great speakers need a solid foundation.",
+    photo: "/images/members/Nagashree.jpg",
+    isOfficer: true,
+    term: "Jan–Jul 2026",
+  },
+  {
+    name: "Gowtham T",
+    role: "VP – Membership",
+    bio: "Growing the Rock The Talk family one member at a time — because every voice deserves a stage.",
+    photo: "/images/members/Gowtham.jpeg",
+    isOfficer: true,
+    term: "Jul–Dec 2025",
+  },
+  {
+    name: "Shoeb Ahmed",
+    role: "Sergeant at Arms",
+    bio: "Setting the stage — literally. The first and last presence at every meeting, ensuring the environment is welcoming and ready.",
+    photo: "/images/members/Shoeb.png",
+    isOfficer: true,
+    term: "Both Terms",
+  },
+  {
+    name: "Om Mishra",
+    role: "Member",
+    bio: "I am dedicated to achieving mastery in all I do. Through Toastmasters, I'm actively stepping out of my comfort zone to communicate more powerfully and drive my own growth.",
+    photo: "/images/members/Om Mishra.png",
+  },
+  {
+    name: "Noel Vaz",
+    role: "Technical Support Specialist",
+    bio: "A world-explorer by passion. When not providing technical solutions at Trellix, riding to new destinations and capturing the beauty of the journey.",
+    photo: "/images/members/Noel.jpeg",
+  },
+  {
+    name: "Subodh Narayan Sah",
+    role: "Member",
+    bio: "My goal is to transform my technical insights into speeches that inspire and influence — to confidently propose innovative, real-world solutions.",
+    photo: "/images/members/Subodh.png",
+  },
+  {
+    name: "Vineet Sadarangani",
+    role: "Member",
+    bio: "Passionate about engaging storytelling — weaving the fun, often humorous mishaps from cooking experiments and cycling trips into memorable speeches.",
+    photo: "/images/members/Vineet.png",
+  },
+  {
+    name: "Balaji G",
+    role: "Member",
+    bio: "Leveraging two years of prior experience to master persuasive, high-stakes communication — transforming complex threat research into clear, action-oriented briefings.",
+    photo: "/images/members/Balaji.jpg",
+  },
+  {
+    name: "Bhanuvishwa Batchu",
+    role: "Member",
+    bio: "Bringing energy and enthusiasm to every meeting — embodying the spirit of growth and community at Rock The Talk.",
+    photo: "/images/members/Bhanuvishwa.png",
+    award: "Spirit of 92 Award",
+  },
+  {
+    name: "Anusha",
+    role: "Member",
+    bio: "A dedicated member on the Pathways journey — each speech a step toward confidently leading and inspiring others.",
+    photo: "/images/members/Anusha.jpeg",
+  },
+  {
+    name: "Laxhit",
+    role: "Member",
+    bio: "Channeling curiosity into compelling speeches — making complex ideas accessible and engaging for every audience.",
+    photo: "/images/members/Laxhit.jpeg",
+  },
+  {
+    name: "Lovely",
+    role: "Member",
+    bio: "Bringing warmth and authenticity to every speech — turning personal stories into universal connections.",
+    photo: "/images/members/Lovely.jpeg",
+  },
+  {
+    name: "Sudeepa",
+    role: "Member",
+    bio: "On a mission to communicate with impact — using every Toastmasters tool to sharpen her edge as a speaker.",
+    photo: "/images/members/Sudeepa.jpeg",
+  },
+  {
+    name: "Sai Bhavani",
+    role: "Member",
+    bio: "Building confidence and clarity on the podium — every Thursday a new opportunity to stretch and grow.",
+    photo: "/images/members/Sai Bhavani.png",
+  },
+  {
+    name: "Sailaja",
+    role: "Member",
+    bio: "Finding her voice and honing her leadership skills — inspired by a community that celebrates every step of the journey.",
+    photo: "/images/members/Sailaja.jpeg",
+  },
+  {
+    name: "Smitha",
+    role: "Member",
+    bio: "Transforming quiet observation into powerful expression — discovering the leader within through every meeting.",
+    photo: "/images/members/Smitha.jpg",
+  },
+  {
+    name: "Megha",
+    role: "Member",
+    bio: "Crafting narratives that blend precision with passion — growing one speech at a time in the Rock The Talk community.",
+    photo: "/images/members/Megha.jpg",
+  },
+  {
+    name: "Shubha S",
+    role: "Content & Designer · Twilight Team",
+    bio: "Weaving visual stories and creative content for the club — the artistic force behind Rock The Talk's identity.",
+    photo: "/images/members/Shubha.png",
+  },
+];
+
+export const celebrationPhotos = [
+  "/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.09.jpeg",
+  "/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.10.jpeg",
+  "/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.11 (1).jpeg",
+  "/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.11.jpeg",
+  "/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.12.jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.08 (1).jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.08.jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09 (1).jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09 (2).jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09 (3).jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09 (4).jpeg",
+  "/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09.jpeg",
+];

@@ -1,0 +1,245 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--loyal-blue);
+}
+.heroBg {
+  position: absolute;
+  inset: -20%;
+  will-change: transform;
+}
+.photoBg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09 (4).jpeg') center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 20, 38, 0.92) 0%,
+    rgba(0, 65, 101, 0.82) 40%,
+    rgba(59, 1, 4, 0.75) 100%
+  );
+}
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--happy-yellow);
+  opacity: 0;
+  animation: float-particle var(--dur, 6s) var(--delay, 0s) infinite ease-in-out;
+}
+@keyframes float-particle {
+  0%   { opacity: 0; transform: translateY(20px) scale(0); }
+  20%  { opacity: 0.6; }
+  80%  { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-60px) scale(1.5); }
+}
+.content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 2rem;
+}
+
+/* ── Typography & Quote ── */
+.quoteWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dynamicQuote {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.line1, .line2, .line3, .line4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  overflow: hidden; /* For clip-up animation */
+}
+
+.word {
+  color: var(--white);
+  font-size: clamp(3rem, 7vw, 7rem);
+  transform: translateY(110%);
+  animation: slideUpWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delay for each word in "Round the clock we" */
+.line1 .word:nth-child(1) { animation-delay: 0.1s; }
+.line1 .word:nth-child(2) { animation-delay: 0.2s; }
+.line1 .word:nth-child(3) { animation-delay: 0.3s; color: rgba(255,255,255,0.7); font-style: italic; }
+.line2 .word:nth-child(1) { animation-delay: 0.4s; }
+
+@keyframes slideUpWord {
+  to { transform: translateY(0); }
+}
+
+/* ── "ROCK THE" Highlight Effect ── */
+.highlightText {
+  position: relative;
+  font-size: clamp(2.5rem, 9vw, 9rem);
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+  transform: translateY(110%);
+  animation: slideUpWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+/* The filled yellow color wiping from left to right */
+.highlightText::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--happy-yellow);
+  -webkit-text-stroke: 0px transparent;
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: fillText 1s cubic-bezier(0.76, 0, 0.24, 1) 1.2s forwards;
+}
+
+/* ── "TALK" Filled Header ── */
+.filledTalk {
+  position: relative;
+  font-size: clamp(2.5rem, 9vw, 9rem);
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+  transform: translateY(110%);
+  animation: slideUpWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+/* The filled yellow color wiping sequentially after "ROCK THE" */
+.filledTalk::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: var(--happy-yellow);
+  -webkit-text-stroke: 0px transparent;
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+  /* Start filling right after ROCK THE finishes (1.2s + 1s = 2.2s delay) */
+  animation: fillText 1s cubic-bezier(0.76, 0, 0.24, 1) 2.2s forwards;
+}
+
+@keyframes fillText {
+  to { width: 100%; }
+}
+
+/* ── Bottom Bar (Meta & CTA) ── */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s 1.5s forwards;
+}
+
+.clubMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-headline);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.metaDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--happy-yellow);
+}
+
+/* Primary Button */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--happy-yellow);
+  color: var(--loyal-blue);
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1.25rem 2.5rem;
+  border-radius: 0; /* Strict brutalist brand style */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  will-change: transform, background;
+}
+
+.btnPrimary:hover {
+  background: var(--white);
+  color: var(--true-maroon);
+  transform: translateY(-2px);
+}
+
+.tmTagline {
+  font-family: var(--font-headline);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 1s 1.5s forwards;
+}
+
+@media (max-width: 992px) {
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .highlightText { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2); }
+  .btnPrimary { width: 100%; text-align: center; }
+  .scrollIndicator { display: none; }
+}

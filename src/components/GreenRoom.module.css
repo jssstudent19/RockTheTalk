@@ -1,0 +1,434 @@
+/* ─── SECTION WRAPPER ──────────────────────── */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── ACT HEADER ───────────────────────────── */
+.actHeader {
+  text-align: center;
+  padding: var(--section-pad) 0 3rem;
+  background: var(--fair-gray);
+}
+.actBadge {
+  display: inline-block;
+  font-family: var(--font-headline);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--true-maroon);
+  border: 1.5px solid var(--true-maroon);
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.heading { color: var(--loyal-blue); margin-bottom: 0.5rem; }
+.headingAccent { color: var(--true-maroon); }
+.scriptSubhead { color: var(--true-maroon); }
+
+
+/* ════════════════════════════════════════
+   PANEL A — TOASTMASTERS INTERNATIONAL
+════════════════════════════════════════ */
+.tmPanel {
+  position: relative;
+  background: var(--loyal-blue);
+  color: var(--white);
+  overflow: hidden;
+}
+
+/* Geometric background pattern — grid of subtle crosslights */
+.tmPanelBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 600px 400px at 80% 50%, rgba(0,96,148,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 600px at 10% 80%, rgba(59,1,4,0.3) 0%, transparent 70%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,0.025) 60px,
+      rgba(255,255,255,0.025) 62px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,0.025) 60px,
+      rgba(255,255,255,0.025) 62px
+    );
+}
+
+.tmInner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: start;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* TM logo + brand */
+.tmBrandCol { display: flex; flex-direction: column; gap: 2rem; }
+.tmLogoWrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.tmLogoImg {
+  width: 72px; height: 72px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+  /* slight brightness bump so it pops on the dark blue panel */
+  filter: brightness(1.05) drop-shadow(0 2px 12px rgba(0,0,0,0.4));
+}
+.tmBrandText {
+  display: flex;
+  flex-direction: column;
+}
+.tmBrandLine1 {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  letter-spacing: -0.01em;
+  color: var(--white);
+  line-height: 1;
+}
+.tmBrandLine2 {
+  font-family: var(--font-headline);
+  font-weight: 400;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--happy-yellow);
+  margin-top: 0.2rem;
+}
+.tmDesc {
+  color: rgba(255,255,255,0.78);
+  max-width: 480px;
+}
+.tmDesc strong { color: var(--happy-yellow); }
+
+/* Vision & Mission cards */
+.tmMissionVision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.mvCard {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  border-left: 3px solid var(--happy-yellow);
+  transition: background 0.3s;
+}
+.mvCard:hover { background: rgba(255,255,255,0.1); }
+.mvLabel {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--happy-yellow);
+  margin-bottom: 0.75rem;
+}
+.mvText {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+/* TM Stats */
+.tmStatsCol { display: flex; flex-direction: column; gap: 2rem; }
+.tmStatsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.tmStatCard {
+  padding: 1.75rem 1.5rem;
+  background: rgba(0,65,101,0.4);
+  text-align: center;
+  transition: background 0.3s;
+}
+.tmStatCard:hover { background: rgba(0,65,101,0.7); }
+.tmStatValue {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--happy-yellow);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.tmStatLabel {
+  font-family: var(--font-headline);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Values block */
+.tmValuesBlock {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.tmValuesTitle {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--happy-yellow);
+  margin-bottom: 1.25rem;
+}
+.tmValuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+.tmValueItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.25s;
+  cursor: default;
+}
+.tmValueItem:hover { background: rgba(255,255,255,0.07); }
+.tmValueIcon {
+  width: 26px; height: 26px;
+  color: var(--happy-yellow);
+}
+.tmValueIcon svg { width: 100%; height: 100%; }
+.tmValueLabel {
+  font-family: var(--font-headline);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+
+/* ════════════════════════════════════════
+   PANEL B — ROCK THE TALK CLUB
+════════════════════════════════════════ */
+.rttPanel {
+  background: var(--fair-gray);
+  position: relative;
+  overflow: hidden;
+}
+.rttPanel::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 40%; height: 100%;
+  background: linear-gradient(135deg, transparent 40%, rgba(0,65,101,0.05) 100%);
+  pointer-events: none;
+}
+.rttInner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Photo column */
+.rttPhotoCol { display: flex; flex-direction: column; gap: 1.5rem; }
+.rttImgFrame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: 0 24px 60px rgba(0,65,101,0.18);
+}
+.rttImg { width: 100%; height: 100%; object-fit: cover; }
+.rttImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(0,65,101,0.85) 100%
+  );
+}
+.rttImgBadge {
+  position: absolute;
+  bottom: 1.25rem; left: 1.25rem;
+  display: flex; flex-direction: column;
+  gap: 0.2rem;
+}
+.rttImgBadgeNum {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--happy-yellow);
+  line-height: 1;
+}
+.rttImgBadgeSub {
+  font-family: var(--font-headline);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Club quick stats */
+.rttStatsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: var(--loyal-blue);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.rttStatItem {
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.rttStatItem:last-child { border-right: none; }
+.rttStatValue {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--happy-yellow);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.rttStatLabel {
+  font-family: var(--font-headline);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Text column */
+.rttTextCol { display: flex; flex-direction: column; gap: 1.5rem; padding-top: 0.5rem; }
+.rttChip {
+  display: inline-block;
+  font-family: var(--font-headline);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--true-maroon);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  width: fit-content;
+}
+.rttHeading { color: var(--loyal-blue); }
+.rttAccent { color: var(--true-maroon); }
+.rttBody { color: #333; }
+.rttBody strong { color: var(--loyal-blue); }
+
+/* Club pillars */
+.rttPillars { display: flex; flex-direction: column; gap: 1.25rem; }
+.rttPillar {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  background: white;
+  border-radius: 10px;
+  border-left: 3px solid var(--loyal-blue);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+.rttPillar:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 24px rgba(0,65,101,0.12);
+}
+.rttPillarIcon {
+  width: 32px; height: 32px;
+  min-width: 32px;
+  color: var(--loyal-blue);
+  margin-top: 0.1rem;
+}
+.rttPillarIcon svg { width: 100%; height: 100%; }
+.rttPillarTitle {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--loyal-blue);
+  margin-bottom: 0.35rem;
+}
+.rttPillarDesc {
+  font-size: 0.88rem;
+  color: #444;
+  line-height: 1.6;
+}
+.rttPillarDesc strong { color: var(--true-maroon); }
+
+/* Director quote */
+.rttQuote {
+  padding: 1.5rem 1.75rem;
+  background: rgba(0,65,101,0.05);
+  border-left: 3px solid var(--loyal-blue);
+  border-radius: 0 8px 8px 0;
+}
+.rttQuoteText {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+.rttQuoteCite {
+  font-family: var(--font-headline);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--loyal-blue);
+  text-transform: uppercase;
+}
+
+/* ─── RESPONSIVE ────────────────────────────── */
+@media (max-width: 1024px) {
+  .tmInner, .rttInner { grid-template-columns: 1fr; gap: 3rem; }
+  .tmMissionVision { grid-template-columns: 1fr 1fr; }
+  .tmValuesGrid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 768px) {
+  .tmMissionVision { grid-template-columns: 1fr; }
+  .tmValuesGrid { grid-template-columns: repeat(2, 1fr); }
+  .tmStatsGrid { grid-template-columns: repeat(2, 1fr); }
+  .rttStatsRow { grid-template-columns: repeat(2, 1fr); }
+  .rttStatItem:nth-child(2) { border-right: none; }
+}
+@media (max-width: 480px) {
+  .tmValuesGrid { grid-template-columns: repeat(2, 1fr); }
+  .rttStatsRow { grid-template-columns: 1fr 1fr; }
+}

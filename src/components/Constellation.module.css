@@ -1,0 +1,322 @@
+/* ─── SECTION ───────────────────────────────── */
+.section {
+  position: relative;
+  background: #020810;
+  color: var(--white);
+  padding-bottom: 0;
+}
+
+/* ─── HEADER ────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: var(--section-pad) 0 2rem;
+}
+.actBadge {
+  display: inline-block;
+  font-family: var(--font-headline);
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--happy-yellow);
+  border: 1.5px solid rgba(242,223,116,0.3);
+  padding: 0.25rem 0.8rem;
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+.heading { color: var(--white); margin-bottom: 0.5rem; }
+.headingAccent { color: var(--happy-yellow); }
+.subhead { color: rgba(255,255,255,0.45); max-width: 520px; margin: 0 auto; }
+
+/* ─── TABS ───────────────────────────────────── */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0 1.5rem 0;
+  position: relative;
+  z-index: 3;
+}
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 1.75rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  color: rgba(255,255,255,0.45);
+  transition: all 0.3s var(--ease-out);
+  min-width: 140px;
+  cursor: pointer;
+}
+.tab:hover {
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.75);
+  transform: translateY(-2px);
+}
+.tabActive {
+  background: rgba(255,255,255,0.07) !important;
+  color: var(--white) !important;
+  border-width: 1.5px;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+.tabDot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-bottom: 0.25rem;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: 0.7; }
+}
+.tabName {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+.tabMyth {
+  font-size: 0.7rem;
+  font-style: italic;
+  opacity: 0.6;
+}
+.tabCount {
+  font-family: var(--font-headline);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-top: 0.15rem;
+}
+
+/* ─── CONSTELLATION DESCRIPTION ─────────────── */
+.constellationInfo {
+  text-align: center;
+  padding: 1.5rem 2rem 0.5rem;
+}
+.constellationDesc {
+  font-family: var(--font-headline);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-style: italic;
+  opacity: 0.8;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ─── SVG CANVAS ─────────────────────────────── */
+.svgWrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) transparent;
+}
+.svgWrap::-webkit-scrollbar { height: 4px; }
+.svgWrap::-webkit-scrollbar-track { background: transparent; }
+.svgWrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+.starMap {
+  display: block;
+  min-width: 800px;
+  /* Allow float animation on the whole SVG */
+}
+
+/* ─── MEMBER STAR NODES ─────────────────────── */
+.starNode {
+  animation: starFloat 5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes starFloat {
+  0%,100% { transform: translateY(0);   }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Officer spinning dashed ring */
+.rotateRing {
+  animation: rotateSlow 12s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes rotateSlow {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* Ambient twinkling bg stars */
+.twinkle {
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  0%   { opacity: 0.06; }
+  100% { opacity: 0.5;  }
+}
+
+/* ─── LEGEND ─────────────────────────────────── */
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.25rem 1.5rem 1.75rem;
+  flex-wrap: wrap;
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-headline);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.legendRing {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid;
+  flex-shrink: 0;
+  position: relative;
+}
+.legendRingInner {
+  display: inline-block;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px dashed;
+  flex-shrink: 0;
+  margin-left: -4px;
+}
+.legendBullet {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  flex-shrink: 0;
+}
+
+/* ─── MEMBER PANEL ───────────────────────────── */
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+.panelBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2,8,16,0.7);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.panelContent {
+  position: absolute;
+  top: 0; right: 0;
+  width: min(400px, 94vw);
+  height: 100dvh;
+  background: linear-gradient(170deg, #001224 0%, #080e1e 100%);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  animation: slideIn 0.3s var(--ease-out);
+}
+@keyframes slideIn { from { transform: translateX(102%); } to { transform: translateX(0); } }
+
+.panelClose {
+  position: sticky;
+  top: 0.75rem;
+  align-self: flex-end;
+  margin: 0.75rem 0.75rem 0;
+  padding: 0.4rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  transition: background 0.2s;
+  z-index: 2;
+  flex-shrink: 0;
+}
+.panelClose:hover { background: rgba(255,255,255,0.14); }
+
+.panelPhotoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-top: -2.5rem;
+  flex-shrink: 0;
+}
+.panelPhoto {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.panelPhotoOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.panelBody {
+  padding: 1.5rem 1.75rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+.panelBadge {
+  font-family: var(--font-headline);
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  border: 1px solid;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  width: fit-content;
+}
+.panelName { color: var(--white); }
+.panelRole { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
+
+.panelAchievements { display: flex; flex-direction: column; gap: 0.45rem; }
+.badgeContest {
+  display: inline-block; padding: 0.3rem 0.75rem;
+  background: rgba(0,65,101,0.45); border: 1px solid rgba(0,96,148,0.5);
+  color: #6ec6ff;
+  font-family: var(--font-headline); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em; border-radius: 4px;
+}
+.badgeAward {
+  display: inline-block; padding: 0.3rem 0.75rem;
+  background: rgba(242,223,116,0.08); border: 1px solid;
+  font-family: var(--font-headline); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em; border-radius: 4px;
+}
+
+.panelQuote {
+  border-left: 2px solid;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.65;
+  margin-top: 0.5rem;
+}
+
+/* ─── RESPONSIVE ────────────────────────────── */
+@media (max-width: 768px) {
+  .tabs { gap: 0.5rem; }
+  .tab { min-width: 100px; padding: 0.75rem 1rem; }
+  .tabMyth { display: none; }
+  .legend { gap: 1rem; font-size: 0.62rem; }
+  .panelContent { width: 100%; border-left: none; top: auto; bottom: 0; height: 70dvh; border-top: 1px solid rgba(255,255,255,0.1); }
+  .panelPhotoWrap { display: none; }
+}

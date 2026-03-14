@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;600;700;800&display=swap');
+
+/* =============================================
+   TOASTMASTERS BRAND DESIGN TOKENS
+   Source: Toastmasters Brand Manual v2.0 Rev. 09/2025
+   ============================================= */
+:root {
+  /* Primary Colors */
+  --loyal-blue: #004165;
+  --true-maroon: #772432;
+
+  /* Gradient Extensions */
+  --blissful-blue: #006094;
+  --deep-maroon: #3B0104;
+  --rich-maroon: #781327;
+
+  /* Secondary / Accent */
+  --cool-gray: #A9B2B1;
+  --fair-gray: #F5F5F5;
+  --happy-yellow: #F2DF74;
+
+  /* Neutral */
+  --white: #FFFFFF;
+  --black: #0D0D0D;
+  --text-dark: #1a1a2e;
+  --text-light: rgba(255,255,255,0.88);
+  --text-muted: rgba(255,255,255,0.55);
+
+  /* Gradients */
+  --grad-blue: linear-gradient(135deg, var(--loyal-blue) 0%, var(--blissful-blue) 100%);
+  --grad-maroon: linear-gradient(135deg, var(--deep-maroon) 0%, var(--rich-maroon) 60%, var(--true-maroon) 100%);
+  --grad-blue-vertical: linear-gradient(180deg, var(--loyal-blue) 0%, var(--blissful-blue) 100%);
+  --grad-blue-dark: linear-gradient(180deg, #001f30 0%, var(--loyal-blue) 100%);
+
+  /* Typography */
+  --font-headline: 'Montserrat', 'Arial', sans-serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', Arial, sans-serif;
+
+
+  /* Spacing */
+  --section-pad: clamp(80px, 10vw, 140px);
+  --container-max: 1280px;
+  --nav-height: 72px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==== RESET & BASE ==== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.65;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 4 L4 24 L9 18 L14 26 L17 24 L12 16 L20 16 Z' fill='%23004165' stroke='%23ffffff' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, auto;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+a, button, [role="button"], input[type="submit"], input[type="button"], input[type="reset"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 4 L4 24 L9 18 L14 26 L17 24 L12 16 L20 16 Z' fill='%23772432' stroke='%23F2DF74' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 4 4, pointer;
+}
+
+/* ==== TYPOGRAPHY SCALE ==== */
+.headline-xl {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.headline-lg {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.headline-md {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.2;
+}
+.headline-sm {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.body-lg { font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.7; }
+.body-md { font-size: 1rem; line-height: 1.65; }
+.script-text { font-family: var(--font-body); font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-style: italic; font-weight: 400; color: inherit; }
+
+/* ==== LAYOUT UTILITIES ==== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+.section-pad { padding: var(--section-pad) 0; }
+
+/* ==== BRAND ACCENT LINE ==== */
+.accent-line {
+  width: 60px;
+  height: 4px;
+  background: var(--happy-yellow);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+.accent-line--center { margin-left: auto; margin-right: auto; }
+
+/* ==== BUTTONS ==== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: var(--happy-yellow);
+  color: var(--loyal-blue);
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out), background 0.25s;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(242, 223, 116, 0.4);
+  background: #f9e96e;
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: var(--white);
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: border-color 0.25s, background 0.25s, transform 0.25s var(--ease-out);
+}
+.btn-outline:hover {
+  border-color: var(--happy-yellow);
+  color: var(--happy-yellow);
+  transform: translateY(-2px);
+}
+
+/* ==== SCROLLBAR ==== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--loyal-blue); }
+::-webkit-scrollbar-thumb { background: var(--true-maroon); border-radius: 3px; }
+
+/* ==== ANIMATIONS ==== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(242, 223, 116, 0.4); }
+  50%       { box-shadow: 0 0 28px rgba(242, 223, 116, 0.8); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ==== REDUCED MOTION ==== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ==== SECTION DIVIDER ==== */
+.section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--true-maroon), transparent);
+  opacity: 0.3;
+}
+
+/* ==== REVEAL ANIMATE (JS driven) ==== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ==== NOISE OVERLAY (subtle texture) ==== */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 1;
+}
