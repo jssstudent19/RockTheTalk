@@ -50,7 +50,8 @@ export default function Footer() {
             <span className={styles.heart}>♥</span>
             Made with love by
             <br />
-            <strong>Rock The Talk Club Members</strong>
+            <strong>Preetham G</strong>
+            <span style={{ fontSize: '0.8em', display: 'block', fontWeight: 'normal', opacity: 0.8 }}>VP-PR of the club</span>
           </p>
           <p className={styles.madeWithSub}>Content &amp; Design · 2025–26</p>
         </div>
