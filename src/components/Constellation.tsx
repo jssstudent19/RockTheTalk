@@ -352,7 +352,6 @@ export default function Constellation() {
       <div className={styles.legend}>
         <span className={styles.legendItem}>
           <span className={styles.legendRingInner} style={{ borderColor: active.color, opacity: 0.4 }} />
-          Member (Spinning ring + ★ badge)
         </span>
         <span className={styles.legendItem} style={{ opacity: 0.5, marginLeft: 'auto' }}>
           Click any star to open profile
