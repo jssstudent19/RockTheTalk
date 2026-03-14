@@ -1,7 +1,7 @@
 /* ─── SECTION ───────────────────────────────── */
 .section {
   position: relative;
-  background: #020810;
+  background: var(--black);
   color: var(--white);
   padding-bottom: 0;
 }
@@ -212,7 +212,7 @@
 .panelBackdrop {
   position: absolute;
   inset: 0;
-  background: rgba(2,8,16,0.7);
+  background: rgba(13,13,13,0.7);
   backdrop-filter: blur(6px);
   animation: fadeIn 0.2s ease;
 }
@@ -223,7 +223,7 @@
   top: 0; right: 0;
   width: min(400px, 94vw);
   height: 100dvh;
-  background: linear-gradient(170deg, #001224 0%, #080e1e 100%);
+  background: linear-gradient(170deg, var(--loyal-blue) 0%, var(--black) 100%);
   border-left: 1px solid rgba(255,255,255,0.08);
   display: flex;
   flex-direction: column;
@@ -287,8 +287,8 @@
 .panelAchievements { display: flex; flex-direction: column; gap: 0.45rem; }
 .badgeContest {
   display: inline-block; padding: 0.3rem 0.75rem;
-  background: rgba(0,65,101,0.45); border: 1px solid rgba(0,96,148,0.5);
-  color: #6ec6ff;
+  background: rgba(0,65,101,0.3); border: 1px solid rgba(0,65,101,0.7);
+  color: var(--white);
   font-family: var(--font-headline); font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.06em; border-radius: 4px;
 }

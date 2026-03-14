@@ -14,7 +14,7 @@ const CONSTELLATIONS = [
     name: 'Ursa Minor',
     myth: 'The Little Dipper',
     desc: 'Seven stars curving like a ladle — with Polaris anchoring the tip.',
-    color: '#006094',        // Brightened Loyal Blue for dark bg contrast
+    color: '#004165',        // TM Loyal Blue
     memberIndices: [0, 1, 2, 3, 4, 5, 6],
     nodes: [
       { cx: 200, cy: 100 }, // 0 — Polaris (handle tip)
@@ -52,7 +52,7 @@ const CONSTELLATIONS = [
     name: 'Orion',
     myth: 'The Hunter',
     desc: 'The iconic hunter — shoulders, belt, feet, and sword visible in the winter sky.',
-    color: '#A23446',        // Brightened True Maroon for dark bg contrast
+    color: '#772432',        // True Maroon
     memberIndices: [16, 17, 18, 19, 20, 21, 22, 23, 24],
     nodes: [
       { cx: 430, cy: 200 }, // 0 — Betelgeuse (left shoulder)
@@ -144,8 +144,8 @@ function ConstellationSVG({
       {/* Defs */}
       <defs>
         <radialGradient id={`bgGrad-${constellation.id}`} cx="50%" cy="40%" r="70%">
-          <stop offset="0%" stopColor="#0d1b3e" />
-          <stop offset="100%" stopColor="#020810" />
+          <stop offset="0%" stopColor="#004165" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#0D0D0D" />
         </radialGradient>
         <filter id="glow">
           <feGaussianBlur stdDeviation="4" result="blur"/>
@@ -163,7 +163,7 @@ function ConstellationSVG({
 
       {/* Ambient stars */}
       {BG_STARS.map((s, i) => (
-        <circle key={i} cx={s.cx} cy={s.cy} r={s.r} fill="white" opacity={s.op}
+        <circle key={i} cx={s.cx} cy={s.cy} r={s.r} fill="#FFFFFF" opacity={s.op}
           className={styles.twinkle} style={{ animationDelay: `${s.delay}s` }} />
       ))}
 
@@ -216,7 +216,7 @@ function ConstellationSVG({
             />
             {/* Photo border */}
             <circle cx={n.cx} cy={n.cy} r={nodeR + 2}
-              fill="#020810" stroke={color}
+              fill="#0D0D0D" stroke={color}
               strokeWidth={2}
               opacity={isHov ? 1 : 0.75}
               style={{ transition: 'opacity 0.3s' }}
@@ -232,7 +232,7 @@ function ConstellationSVG({
             />
             {/* Star badge (for all members) */}
             <g>
-              <circle cx={n.cx + nodeR - 2} cy={n.cy - nodeR + 2} r={9} fill="#020810" stroke={color} strokeWidth="1" />
+              <circle cx={n.cx + nodeR - 2} cy={n.cy - nodeR + 2} r={9} fill="#0D0D0D" stroke={color} strokeWidth="1" />
               <text x={n.cx + nodeR - 2} y={n.cy - nodeR + 6}
                 textAnchor="middle" fontSize="10" fill={color} filter="url(#glow)">★</text>
             </g>
@@ -240,9 +240,9 @@ function ConstellationSVG({
             {isHov && (
               <g>
                 <rect x={n.cx - 64} y={n.cy + nodeR + 8} width="128" height="24" rx="7"
-                  fill="rgba(2,8,16,0.92)" stroke={`${color}50`} strokeWidth="1" />
+                  fill="rgba(13,13,13,0.92)" stroke={`${color}50`} strokeWidth="1" />
                 <text x={n.cx} y={n.cy + nodeR + 24} textAnchor="middle"
-                  fill="white" fontSize="10" fontWeight="700" fontFamily="Montserrat,sans-serif" letterSpacing="0.04em">
+                  fill="#FFFFFF" fontSize="10" fontWeight="700" fontFamily="Montserrat,sans-serif" letterSpacing="0.04em">
                   {m.name}
                 </text>
               </g>

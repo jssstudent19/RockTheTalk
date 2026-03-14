@@ -10,7 +10,7 @@
               box-shadow 0.4s ease, padding 0.3s ease;
 }
 .nav.scrolled {
-  background: rgba(3, 14, 26, 0.95);
+  background: rgba(13,13,13,0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 6px 40px rgba(0,0,0,0.45);
@@ -35,7 +35,7 @@
   display: flex;
   align-items: baseline;
   background: var(--happy-yellow);
-  color: #001426;
+  color: var(--black);
   font-family: var(--font-headline);
   font-weight: 900;
   line-height: 1;
@@ -185,7 +185,7 @@
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  background: rgba(4, 16, 30, 0.98);
+  background: rgba(13,13,13,0.98);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid rgba(255,255,255,0.08);
@@ -339,7 +339,7 @@
   display: none;
   flex-direction: column;
   padding: 0.5rem 1.25rem 1.5rem;
-  background: rgba(3, 14, 26, 0.98);
+  background: rgba(13,13,13,0.98);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s var(--ease-out);

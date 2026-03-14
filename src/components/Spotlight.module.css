@@ -1,7 +1,7 @@
 /* ─── BASE ─────────────────────────────────── */
 .section {
   position: relative;
-  background: #02080f;
+  background: var(--black);
   color: var(--white);
   overflow: hidden;
   padding-bottom: 0;
@@ -45,8 +45,8 @@
   left: 28%;
   background: linear-gradient(
     180deg,
-    rgba(0,96,148,0.22) 0%,
-    rgba(0,96,148,0.06) 50%,
+    rgba(0,65,101,0.22) 0%,
+    rgba(0,65,101,0.06) 50%,
     transparent 100%
   );
   transform: rotate(-4deg);
@@ -162,9 +162,9 @@
   background: linear-gradient(
     120deg,
     var(--happy-yellow) 0%,
-    #fff3a0 30%,
+    rgba(255,255,255,0.85) 30%,
     var(--happy-yellow) 50%,
-    #c9a227 70%,
+    rgba(180,140,30,1) 70%,
     var(--happy-yellow) 100%
   );
   background-size: 300% auto;
@@ -285,9 +285,9 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(2,8,15,0.95) 0%,
-    rgba(2,8,15,0.5) 45%,
-    rgba(2,8,15,0.1) 100%
+    rgba(0,0,0,0.95) 0%,
+    rgba(0,0,0,0.5) 45%,
+    rgba(0,0,0,0.1) 100%
   );
 }
 .sideCardBody {
@@ -342,11 +342,11 @@
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  min-height: 560px; /* Force minimum height so it aligns correctly with the side cards */
+  min-height: 560px;
   display: flex;
   flex-direction: column;
   transition: transform 0.4s var(--ease-out);
-  background: #0a0a0a;
+  background: var(--black);
 }
 .heroCard:hover { transform: scale(1.015); }
 .heroCardBg {
@@ -366,10 +366,10 @@
   inset: 0;
   background: linear-gradient(
     160deg,
-    rgba(2,8,15,0.15) 0%,
+    rgba(0,0,0,0.15) 0%,
     rgba(59,1,4,0.35) 30%,
-    rgba(2,8,15,0.92) 75%,
-    rgba(2,8,15,0.98) 100%
+    rgba(0,0,0,0.92) 75%,
+    rgba(0,0,0,0.98) 100%
   );
 }
 .spotlightBeam {
@@ -421,7 +421,7 @@
   font-weight: 900;
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   line-height: 1.05;
-  background: linear-gradient(120deg, #fff 0%, var(--happy-yellow) 40%, #fff3a0 60%, var(--happy-yellow) 100%);
+  background: linear-gradient(120deg, var(--white) 0%, var(--happy-yellow) 40%, var(--white) 60%, var(--happy-yellow) 100%);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -669,7 +669,7 @@
 .stripGradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(2,8,15,0.7) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
   transition: opacity 0.5s;
 }
 .stripItem:hover .stripGradient { opacity: 0.4; }

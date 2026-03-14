@@ -72,7 +72,7 @@ export const members: Member[] = [
     name: "Preetham G",
     role: "VP – Public Relations · Content & Designer",
     bio: "As a Project Manager Apprentice, my goal is to master stakeholder communication — presenting updates and resolving conflicts with clarity. Twilight Team co-creator.",
-    photo: "/images/members/Preetham.jpeg",
+    photo: "/images/members/Preetham.png",
     isOfficer: true,
     term: "Jan–Jul 2026",
   },

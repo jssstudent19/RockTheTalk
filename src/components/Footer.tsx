@@ -24,6 +24,8 @@ export default function Footer() {
               { label: 'The Constellation', href: '#constellation' },
               { label: 'The Spotlight', href: '#spotlight' },
               { label: 'The Script', href: '#the-script' },
+              { label: 'The Ex-com', href: '#excom' },
+              { label: 'Gallery', href: '#gallery' },
               { label: 'The Encore', href: '#encore' },
             ].map(link => (
               <li key={link.href}>
