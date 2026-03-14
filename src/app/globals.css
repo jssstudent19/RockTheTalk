@@ -206,6 +206,24 @@ a, button, [role="button"], input[type="submit"], input[type="button"], input[ty
   html { scroll-behavior: auto; }
 }
 
+/* ==== MOBILE / TOUCH IMPROVEMENTS ==== */
+@media (max-width: 768px) {
+  /* Disable custom cursor on touch devices — they don't need one */
+  body {
+    cursor: auto;
+  }
+  a, button, [role="button"],
+  input[type="submit"], input[type="button"], input[type="reset"] {
+    cursor: pointer;
+    /* Ensure tap targets meet 44×44 px minimum */
+    min-height: 44px;
+  }
+  /* Prevent tiny text on zoom */
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
 /* ==== SECTION DIVIDER ==== */
 .section-divider {
   width: 100%;

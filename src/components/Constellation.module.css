@@ -319,4 +319,13 @@
   .legend { gap: 1rem; font-size: 0.62rem; }
   .panelContent { width: 100%; border-left: none; top: auto; bottom: 0; height: 70dvh; border-top: 1px solid rgba(255,255,255,0.1); }
   .panelPhotoWrap { display: none; }
+  .svgWrap { -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 480px) {
+  .tabs { gap: 0.35rem; padding: 0 0.75rem; }
+  .tab { min-width: 80px; padding: 0.6rem 0.75rem; }
+  .tabName { font-size: 0.8rem; }
+  .tabCount { display: none; }
+  .legend { flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
 }

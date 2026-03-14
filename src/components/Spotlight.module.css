@@ -540,6 +540,7 @@
   border: 2px solid transparent;
   background: linear-gradient(135deg, rgba(242,223,116,0.6), transparent, rgba(242,223,116,0.2)) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   animation: spin-slow 8s linear infinite;
@@ -681,15 +682,25 @@
   .individualGrid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .podium { grid-template-columns: 1fr; }
-  .heroCard { min-height: 420px; }
-  .podiumSide { flex-direction: row; }
+  .podium { grid-template-columns: 1fr; min-height: auto; }
+  .heroCard { min-height: 400px; }
+  .podiumSide { flex-direction: column; }
   .sideCard { min-height: 200px; }
   .clubAwardGrid { grid-template-columns: repeat(2, 1fr); }
   .individualGrid { grid-template-columns: repeat(2, 1fr); }
   .immersiveStrip { height: 180px; }
+  .podiumSection { margin-bottom: 3rem; }
+  .clubAwardsSection { margin-bottom: 3rem; }
+  .sectionLabel::before, .sectionLabel::after { width: 24px; }
 }
 @media (max-width: 480px) {
-  .clubAwardGrid { grid-template-columns: 1fr; }
-  .individualGrid { grid-template-columns: 1fr; }
+  .heroCard { min-height: 300px; }
+  .sideCard { min-height: 160px; }
+  .clubAwardCard { padding: 2rem 1rem; }
+  .clubAwardGrid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .individualGrid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .indivPhotoWrap { width: 70px; height: 70px; }
+  .indivName { font-size: 0.85rem; }
+  .immersiveStrip { display: none; }
+  .ticker { margin-bottom: 2.5rem; }
 }

@@ -116,3 +116,8 @@
 @media (max-width: 640px) {
   .inner { grid-template-columns: 1fr; }
 }
+@media (max-width: 480px) {
+  .inner { padding-top: 2.5rem; padding-bottom: 2.5rem; gap: 2rem; }
+  .logoText { font-size: 1.1rem; }
+  .disclaimer p { font-size: 0.68rem; }
+}

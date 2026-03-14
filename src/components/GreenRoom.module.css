@@ -422,13 +422,22 @@
   .tmValuesGrid { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 768px) {
+  .tmInner, .rttInner { padding-top: 3rem; padding-bottom: 3rem; }
   .tmMissionVision { grid-template-columns: 1fr; }
   .tmValuesGrid { grid-template-columns: repeat(2, 1fr); }
   .tmStatsGrid { grid-template-columns: repeat(2, 1fr); }
   .rttStatsRow { grid-template-columns: repeat(2, 1fr); }
   .rttStatItem:nth-child(2) { border-right: none; }
+  .mvCard { padding: 1.25rem; }
+  .rttPillar { padding: 1rem 1.25rem; }
+  .rttQuote { padding: 1.25rem 1.5rem; }
+  .tmStatCard { padding: 1.25rem 1rem; }
 }
 @media (max-width: 480px) {
+  .tmInner, .rttInner { padding-top: 2rem; padding-bottom: 2rem; gap: 2rem; }
   .tmValuesGrid { grid-template-columns: repeat(2, 1fr); }
   .rttStatsRow { grid-template-columns: 1fr 1fr; }
+  .actHeader { padding-top: 3rem; padding-bottom: 2rem; }
+  .tmLogoImg { width: 56px; height: 56px; }
+  .tmBrandLine1 { font-size: 1.25rem; }
 }

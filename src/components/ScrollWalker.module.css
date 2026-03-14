@@ -181,3 +181,12 @@
     display: none;
   }
 }
+
+/* ============================================================
+   Mobile – hide walker on small screens
+   ============================================================ */
+@media (max-width: 768px) {
+  .walkerContainer {
+    display: none;
+  }
+}

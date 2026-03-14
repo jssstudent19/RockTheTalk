@@ -740,6 +740,8 @@
 }
 
 @media (max-width: 768px) {
+  .header { margin-bottom: 2.5rem; }
+  .excomSection { padding: 3rem 1.25rem; border-radius: 20px; }
   .timeline::before { left: 24px; transform: none; }
   .timeline::after { left: 24px; transform: none; }
   .timelineItem {
@@ -752,6 +754,8 @@
   .timelineCard { padding: 1.25rem 1.5rem; }
   .officersGrid { grid-template-columns: repeat(2, 1fr); }
   .termLabel { padding: 0.6rem 1.25rem; font-size: 0.75rem; }
+  .termTabBtns { flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+  .timeline { margin-bottom: 3rem; }
 }
 
 @media (max-width: 480px) {
@@ -760,4 +764,9 @@
   .officerPhoto { width: 70px; height: 70px; }
   .officerName { font-size: 0.8rem; }
   .actBadge { font-size: 0.65rem; padding: 0.3rem 0.75rem; }
+  .termTabBtns { flex-direction: column; width: 100%; }
+  .termLabel { width: 100%; justify-content: center; }
+  .excomSection { margin-top: 1.5rem; padding: 2rem 1rem; }
+  .excomSub { font-size: 0.95rem; margin-bottom: 2rem; }
+  .timelineCard { padding: 1rem 1.25rem; }
 }
