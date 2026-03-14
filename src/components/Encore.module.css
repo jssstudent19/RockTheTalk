@@ -181,14 +181,14 @@
 .resourcesHeader {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.75rem;
   font-family: var(--font-headline);
-  font-size: 0.62rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(242,223,116,0.55);
-  margin-bottom: 1.75rem;
+  color: var(--happy-yellow);
+  margin-bottom: 2rem;
 }
 .resourcesGrid {
   display: grid;
@@ -202,7 +202,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(242,223,116,0.35);
+  color: rgba(242,223,116,0.7);
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -211,12 +211,14 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.7rem 0.75rem;
-  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  border-left: 2px solid rgba(242,223,116,0.25);
+  background: rgba(255,255,255,0.02);
+  border-radius: 0 10px 10px 0;
   text-decoration: none;
   color: rgba(255,255,255,0.75);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  margin-bottom: 2px;
+  transition: all 0.2s;
+  margin-bottom: 0.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -224,12 +226,15 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(242,223,116,0.07), transparent);
+  background: rgba(242,223,116,0.06);
   opacity: 0;
   transition: opacity 0.2s;
-  border-radius: 10px;
 }
-.resourceCard:hover { color: var(--white); transform: translateX(3px); }
+.resourceCard:hover {
+  border-left-color: var(--happy-yellow);
+  transform: translateX(3px);
+  color: var(--white);
+}
 .resourceCard:hover::before { opacity: 1; }
 .resourceIcon {
   display: flex;
@@ -254,18 +259,19 @@
 .resourceLabel {
   font-family: var(--font-headline);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  color: inherit;
+  color: var(--white);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .resourceDesc {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.38);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
-.resourceCard:hover .resourceDesc { color: rgba(255,255,255,0.6); }
+.resourceCard:hover .resourceDesc { color: rgba(255, 255, 255, 0.85); }
 .resourceArrow {
   color: rgba(242,223,116,0.35);
   flex-shrink: 0;

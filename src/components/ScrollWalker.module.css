@@ -1,0 +1,183 @@
+/* ============================================================
+   ScrollWalker — Scroll-synced walking person animation
+   Brand: loyal-blue #004165 | true-maroon #772432 | yellow #F2DF74
+   ============================================================ */
+
+/* ---- Container ---- */
+.walkerContainer {
+  position: fixed;
+  right: 18px;
+  width: 64px;
+  height: 64px;
+  z-index: 9000;
+  pointer-events: none;
+  /* smooth vertical tracking */
+  transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Keep at least partially on screen */
+  transform: translateY(-50%);
+}
+
+/* ---- The figure wrapper ---- */
+.figure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 4px 10px rgba(0, 65, 101, 0.5));
+}
+
+/* Facing direction (flip horizontally) */
+.facingDown {
+  transform: scaleX(1);
+}
+.facingUp {
+  transform: scaleX(-1);
+}
+
+/* ---- SVG sizing ---- */
+.svg {
+  width: 64px;
+  height: 128px;
+  overflow: visible;
+}
+
+/* ============================================================
+   KEYFRAMES – limb animations
+   ============================================================ */
+
+/* Walking cycle – legs swing alternately */
+@keyframes legLeftWalk {
+  0%   { transform: rotate(-28deg); transform-origin: 26px 70px; }
+  50%  { transform: rotate(28deg);  transform-origin: 26px 70px; }
+  100% { transform: rotate(-28deg); transform-origin: 26px 70px; }
+}
+@keyframes legRightWalk {
+  0%   { transform: rotate(28deg);  transform-origin: 34px 70px; }
+  50%  { transform: rotate(-28deg); transform-origin: 34px 70px; }
+  100% { transform: rotate(28deg);  transform-origin: 34px 70px; }
+}
+@keyframes armLeftSwing {
+  0%   { transform: rotate(22deg);  transform-origin: 22px 48px; }
+  50%  { transform: rotate(-22deg); transform-origin: 22px 48px; }
+  100% { transform: rotate(22deg);  transform-origin: 22px 48px; }
+}
+@keyframes armRightSwing {
+  0%   { transform: rotate(-22deg); transform-origin: 38px 48px; }
+  50%  { transform: rotate(22deg);  transform-origin: 38px 48px; }
+  100% { transform: rotate(-22deg); transform-origin: 38px 48px; }
+}
+
+/* Body bob – gentle up/down */
+@keyframes bodyBob {
+  0%, 100% { transform: translateY(0px); }
+  25%       { transform: translateY(-3px); }
+  75%       { transform: translateY(2px); }
+}
+
+/* Head nod */
+@keyframes headNod {
+  0%, 100% { transform: rotate(0deg);   transform-origin: 30px 30px; }
+  40%       { transform: rotate(-4deg); transform-origin: 30px 30px; }
+  80%       { transform: rotate(4deg);  transform-origin: 30px 30px; }
+}
+
+/* Idle breathing sway */
+@keyframes idleSway {
+  0%, 100% { transform: rotate(0deg)   scale(1);    transform-origin: bottom center; }
+  33%       { transform: rotate(-1.5deg) scale(1.01); transform-origin: bottom center; }
+  66%       { transform: rotate(1.5deg)  scale(1.01); transform-origin: bottom center; }
+}
+
+/* Bubble pulse when idle */
+@keyframes bubblePulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.08); }
+}
+
+/* Dust puff */
+@keyframes dustPuff {
+  0%   { opacity: 0.8; transform: scale(0.5) translateX(0); }
+  100% { opacity: 0;   transform: scale(2.5) translateX(6px); }
+}
+
+/* ============================================================
+   WALKING state — activate limb animations
+   ============================================================ */
+.walking .legLeft {
+  animation: legLeftWalk 0.42s ease-in-out infinite;
+}
+.walking .legRight {
+  animation: legRightWalk 0.42s ease-in-out infinite;
+}
+.walking .armLeft {
+  animation: armLeftSwing 0.42s ease-in-out infinite;
+}
+.walking .armRight {
+  animation: armRightSwing 0.42s ease-in-out infinite;
+}
+.walking .footLeft {
+  animation: legLeftWalk 0.42s ease-in-out infinite;
+}
+.walking .footRight {
+  animation: legRightWalk 0.42s ease-in-out infinite;
+}
+.walking .torso {
+  animation: bodyBob 0.42s ease-in-out infinite;
+}
+.walking .head {
+  animation: headNod 0.84s ease-in-out infinite;
+}
+.walking .bubble {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* ============================================================
+   IDLE state — soft sway + speech bubble
+   ============================================================ */
+.idle {
+  animation: idleSway 3s ease-in-out infinite;
+}
+.idle .bubble {
+  animation: bubblePulse 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Make limbs static when idle */
+.idle .legLeft,
+.idle .legRight,
+.idle .armLeft,
+.idle .armRight,
+.idle .footLeft,
+.idle .footRight,
+.idle .torso,
+.idle .head {
+  animation: none;
+  transform: none;
+}
+
+/* ============================================================
+   DUST puff element
+   ============================================================ */
+.dust {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,223,116,0.6) 0%, transparent 70%);
+  animation: dustPuff 0.35s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Reduced motion – respect accessibility settings
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .walkerContainer {
+    display: none;
+  }
+}

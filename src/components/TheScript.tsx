@@ -13,16 +13,7 @@ const meetingSteps = [
 export default function TheScript() {
   return (
     <section className={styles.section} id="the-script" aria-label="The Script – How We Meet">
-      {/* Background Effects */}
-      <div className={styles.sectionBlob} />
-      <div className={styles.sectionBlob} />
-      <div className={styles.sectionBlob} />
-      <div className={styles.sectionShape} />
-      <div className={styles.sectionShape} />
-      <div className={styles.sectionShape} />
-      <div className={styles.sectionWaveLine} />
-      <div className={styles.sectionWaveLine} />
-      <div className={styles.sectionDots} />
+      {/* Background Effects Removed */}
       
       <div className="container">
         {/* Header */}
