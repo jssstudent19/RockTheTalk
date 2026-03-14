@@ -280,7 +280,7 @@
   font-size: clamp(2.8rem, 6vw, 5.5rem);
   font-weight: 800;
   line-height: 1.05;
-  color: #f0ece8;
+  color: var(--white);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
@@ -458,14 +458,14 @@
   font-family: var(--font-headline);
   font-size: 0.78rem;
   font-weight: 600;
-  color: #2a1f18;
+  color: var(--black);
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
 .captionStar {
   font-size: 0.6rem;
-  color: #c4a535;
+  color: var(--happy-yellow);
   opacity: 0.85;
 }
 

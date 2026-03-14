@@ -638,7 +638,7 @@
 }
 .starBullet {
   width: 12px; height: 12px;
-  color: #ff4d4d; /* Red star bullet to match their newsletter */
+  color: var(--true-maroon); /* Red star bullet to match their newsletter */
   flex-shrink: 0;
 }
 

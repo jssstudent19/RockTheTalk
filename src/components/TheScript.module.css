@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   bottom: 0px;
-  background: linear-gradient(90deg, transparent 4rem, rgba(200,50,50,0.1) 4rem, rgba(200,50,50,0.1) 4.2rem, transparent 4.2rem);
+  background: linear-gradient(90deg, transparent 4rem, rgba(119,36,50,0.1) 4rem, rgba(119,36,50,0.1) 4.2rem, transparent 4.2rem);
   pointer-events: none;
   z-index: 1;
 }
@@ -67,7 +67,7 @@
   z-index: -1;
   border-radius: 2px;
 }
-.subhead { color: #555; max-width: 550px; margin: 0 auto; font-weight: 400; }
+.subhead { color: rgba(0,0,0,0.6); max-width: 550px; margin: 0 auto; font-weight: 400; }
 
 /* Timeline Enhancements */
 .timeline {
@@ -292,7 +292,7 @@
 .cardDesc {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: #4a4a4a;
+  color: rgba(0,0,0,0.6);
   line-height: 1.6;
 }
 

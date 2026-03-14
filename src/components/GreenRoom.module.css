@@ -348,7 +348,7 @@
 }
 .rttHeading { color: var(--loyal-blue); }
 .rttAccent { color: var(--true-maroon); }
-.rttBody { color: #333; }
+.rttBody { color: var(--text-dark); }
 .rttBody strong { color: var(--loyal-blue); }
 
 /* Club pillars */
@@ -386,7 +386,7 @@
 }
 .rttPillarDesc {
   font-size: 0.88rem;
-  color: #444;
+  color: var(--text-dark);
   line-height: 1.6;
 }
 .rttPillarDesc strong { color: var(--true-maroon); }
@@ -402,7 +402,7 @@
   font-family: var(--font-body);
   font-style: italic;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 0.6rem;
   line-height: 1.6;
 }
