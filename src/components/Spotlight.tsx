@@ -55,7 +55,7 @@ const clubAwards = [
 ];
 
 const individualAwards = [
-  { name: 'Bhanuvishwa Batchu', photo: '/images/members/Bhanuvishwa.HEIC', awards: ['Pathbreaker', 'Triple Crown'] },
+  { name: 'Bhanuvishwa Batchu', photo: '/images/members/Bhanuvishwa.png', awards: ['Pathbreaker', 'Triple Crown'] },
   { name: 'Rajkumar Gupta', photo: '/images/members/Rajkumar.png', awards: ['Pathbreaker'] },
   { name: 'Arogya Daniel J', photo: '/images/members/Arogya Das Daniel.jpg', awards: ['Pathbreaker', 'Triple Crown', 'Master-Mentor'] },
   { name: 'Mrinalini Sarabada', photo: '/images/members/Mrinalini.jpg', awards: ['Triple Crown'] },

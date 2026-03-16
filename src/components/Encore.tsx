@@ -108,7 +108,7 @@ export default function Encore() {
           </div>
           <div className={styles.joinActions}>
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSd_8ttap_0GNOCJMsd1fxvNYul6fYwSDRgA7FfgygoPoN2qQg/viewform"
+              href="https://forms.gle/ZkBdkH44NVh4WKSp7"
               target="_blank"
               rel="noopener noreferrer"
               className={`btn-primary ${styles.joinBtn}`}
@@ -123,14 +123,14 @@ export default function Encore() {
             {/* QR Code option */}
             <div className={styles.qrBlock}>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSd_8ttap_0GNOCJMsd1fxvNYul6fYwSDRgA7FfgygoPoN2qQg/viewform"
+                href="https://forms.gle/ZkBdkH44NVh4WKSp7"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.qrLink}
                 aria-label="Scan QR code to open membership registration form"
               >
                 <img
-                  src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent('https://docs.google.com/forms/d/e/1FAIpQLSd_8ttap_0GNOCJMsd1fxvNYul6fYwSDRgA7FfgygoPoN2qQg/viewform')}&bgcolor=0d1b2a&color=F2DF74&margin=4`}
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent('https://forms.gle/ZkBdkH44NVh4WKSp7')}&bgcolor=0d1b2a&color=F2DF74&margin=4`}
                   alt="QR code for membership registration form"
                   width={90}
                   height={90}
@@ -216,7 +216,7 @@ export default function Encore() {
               },
               {
                 label: 'Guest Booklet', desc: "First-timer's welcome guide",
-                href: 'https://drive.google.com/file/d/1NeFGSve1DLSr7Ix7Hj6vWeTKtm2sVXHy/view?usp=sharing',
+                href: 'https://drive.google.com/file/d/1bMxm0IjFRHLNp2hCqaNne2cGUpwwm77-/view?usp=sharing',
                 icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
               },
               {

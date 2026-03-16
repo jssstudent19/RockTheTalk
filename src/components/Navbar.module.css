@@ -31,21 +31,13 @@
   flex-shrink: 0;
   text-decoration: none;
 }
-.logoMark {
-  display: flex;
-  align-items: baseline;
-  background: var(--happy-yellow);
-  color: var(--black);
-  font-family: var(--font-headline);
-  font-weight: 900;
-  line-height: 1;
-  padding: 0.28rem 0.44rem 0.22rem;
-  border-radius: 5px;
-  letter-spacing: -0.02em;
+/* Toastmasters logo image */
+.tmLogo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
 }
-.logoR  { font-size: 1rem; }
-.logoTT { font-size: 0.68rem; margin-left: 1px; }
 .logoWords {
   display: flex;
   flex-direction: column;
@@ -67,18 +59,6 @@
   letter-spacing: 0.1em;
   color: var(--white);
   text-transform: uppercase;
-}
-.logoBadge {
-  font-family: var(--font-headline);
-  font-size: 0.48rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: rgba(255,255,255,0.3);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 0.1em 0.42em;
-  border-radius: 2px;
-  align-self: flex-start;
-  margin-top: 2px;
 }
 
 /* ─── Desktop links row ─────────────────────────── */
