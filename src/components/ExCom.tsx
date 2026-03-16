@@ -8,7 +8,7 @@ const excomJulDec = [
   { role: 'VP – Education', name: 'Nandini NR', photo: '/images/members/Nandini.jpg' },
   { role: 'VP – Membership', name: 'Gowtham T', photo: '/images/members/Gowtham.jpeg' },
   { role: 'VP – Public Relations', name: 'Jatin Kumar', photo: '/images/members/Jatin.png' },
-  { role: 'Secretary', name: 'Adithya Verma', photo: '/images/members/Adithya.jpg' },
+  { role: 'Secretary', name: 'Adithya Varma', photo: '/images/members/Adithya.jpg' },
   { role: 'Treasurer', name: 'Jaishankar U', photo: '/images/members/Jaishankar.jpg' },
   { role: 'Sergeant at Arms', name: 'Shoeb Ahmed', photo: '/images/members/Shoeb.png' },
 ];
@@ -16,9 +16,9 @@ const excomJulDec = [
 const excomJanJul = [
   { role: 'President', name: 'Taksha Yadav', photo: '/images/members/Taksha.png' },
   { role: 'Immediate Past President', name: 'Arogya Das Daniel', photo: '/images/members/Arogya Das Daniel.jpg' },
-  { role: 'VP – Education', name: 'Adithya Verma', photo: '/images/members/Adithya.jpg' },
+  { role: 'VP – Education', name: 'Adithya Varma', photo: '/images/members/Adithya.jpg' },
   { role: 'VP – Membership', name: 'Nandini NR', photo: '/images/members/Nandini.jpg' },
-  { role: 'VP – Public Relations', name: 'Preetham G', photo: '/images/members/Preetham.png' },
+  { role: 'Vice President-Public Relations', name: 'Preetham G', photo: '/images/members/Preetham.png' },
   { role: 'Secretary', name: 'Adarsh Anand', photo: '/images/members/Adarsh.webp' },
   { role: 'Treasurer', name: 'Nagashree NR', photo: '/images/members/Nagashree.jpg' },
   { role: 'Sergeant at Arms', name: 'Shoeb Ahmed', photo: '/images/members/Shoeb.png' },
@@ -55,7 +55,7 @@ export default function ExCom() {
           <div className={styles.actBadge}>Act V</div>
           <div className="accent-line accent-line--center" />
           <h2 className={`headline-lg ${styles.heading}`}>
-            Executive <span className={styles.headingAccent}>Committee</span>
+            Executive <span className={styles.headingAccent}>Committee</span> 2025–26
           </h2>
           <p className={`body-lg ${styles.subhead}`}>
             Together everyone achieves more — T.E.A.M

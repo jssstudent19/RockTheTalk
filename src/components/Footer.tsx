@@ -11,7 +11,7 @@ export default function Footer() {
             <sup className={styles.logoTm}>®</sup>
           </div>
           <p className={styles.tagline}>Toastmasters International Club #05843628</p>
-          <p className={styles.taglineSub}>Division B2 · Area B2 · Bangalore, India</p>
+          <p className={styles.taglineSub}>Division B · Area B2 · Bangalore, India</p>
           <p className={styles.chartered}>Chartered: 1 October 2016</p>
         </div>
 
@@ -24,7 +24,7 @@ export default function Footer() {
               { label: 'The Constellation', href: '#constellation' },
               { label: 'The Spotlight', href: '#spotlight' },
               { label: 'The Script', href: '#the-script' },
-              { label: 'The Ex-com', href: '#excom' },
+              { label: 'The Ex-Com', href: '#excom' },
               { label: 'Gallery', href: '#gallery' },
               { label: 'The Encore', href: '#encore' },
             ].map(link => (
@@ -41,7 +41,26 @@ export default function Footer() {
           <p className={styles.meetInfo}>Every Thursday</p>
           <p className={styles.meetTime}>12:30 PM – 2:00 PM IST</p>
           <p className={styles.meetNote}>Trellix, Bangalore</p>
-          <a href="mailto:rockthetalk@gmail.com" className={`btn-primary ${styles.contactBtn}`}>
+          <a
+            href="https://maps.google.com/maps?q=Trellix,+Embassy+Golf+Links+Business+Park,+Bangalore"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'block', marginTop: '1rem', marginBottom: '1.5rem', borderRadius: '8px', overflow: 'hidden', height: '150px', position: 'relative', border: '1px solid rgba(255,255,255,0.1)' }}
+            aria-label="View Trellix Bangalore Location on Google Maps"
+            title="Open in Google Maps"
+          >
+            <iframe 
+              src="https://maps.google.com/maps?q=Trellix,%20Embassy%20Golf%20Links%20Business%20Park,%20Bangalore&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, pointerEvents: 'none' }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Trellix Bangalore Location"
+            ></iframe>
+          </a>
+          <a href="https://forms.gle/ZkBdkH44NVh4WKSp7" target="_blank" rel="noopener noreferrer" className={`btn-primary ${styles.contactBtn}`}>
             Get in Touch
           </a>
         </div>
@@ -53,9 +72,9 @@ export default function Footer() {
             Made with love by
             <br />
             <strong>Preetham G</strong>
-            <span style={{ fontSize: '0.8em', display: 'block', fontWeight: 'normal', opacity: 0.8 }}>VP-PR of the club</span>
+            <span style={{ fontSize: '0.8em', display: 'block', fontWeight: 'normal', opacity: 0.8 }}>Vice President-Public Relations</span>
           </p>
-          <p className={styles.madeWithSub}>Content &amp; Design · 2025–26</p>
+          <p className={styles.madeWithSub}>[Jan 2026-Present]<br />Rock The Talk Toastmasters Club</p>
         </div>
       </div>
 

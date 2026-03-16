@@ -1,0 +1,149 @@
+/* ── Full-screen overlay ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #050a12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Ambient glow backdrop when bulb is ON ── */
+.glowBackdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 42%,
+    rgba(255, 214, 0, 0.18) 0%,
+    rgba(255, 140, 0, 0.07) 50%,
+    transparent 80%
+  );
+  animation: glowPulse 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.8; }
+  50%       { opacity: 1.0; }
+}
+
+/* ── Scene wrapper ── */
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+/* ── SVG bulb ── */
+.bulbSvg {
+  display: block;
+  overflow: visible;
+  /* Subtle idle sway */
+  animation: idleSway 4s ease-in-out infinite;
+  transform-origin: 110px 7px; /* top-center of cord mount */
+}
+
+@keyframes idleSway {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(0.8deg); }
+  75%       { transform: rotate(-0.8deg); }
+}
+
+/* ── Filament inner glow animation ── */
+.filamentAnim {
+  animation: filamentFlicker 0.12s ease-in-out 3, filamentGlow 1.5s 0.36s ease-in-out infinite;
+}
+
+@keyframes filamentFlicker {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes filamentGlow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.06); }
+}
+
+/* ── Halo animation ── */
+.haloAnim {
+  animation: haloPulse 1.6s ease-in-out infinite;
+  transform-origin: 110px 178px;
+}
+
+@keyframes haloPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.08); }
+}
+
+/* ── Spark rays burst in ── */
+.sparkRays {
+  animation: sparkIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes sparkIn {
+  from { opacity: 0; transform: scale(0.5); transform-origin: 110px 185px; }
+  to   { opacity: 1; transform: scale(1);   transform-origin: 110px 185px; }
+}
+
+/* ── Pull hint label ── */
+.hint {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  animation: hintBob 1.8s ease-in-out infinite;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.hintArrow {
+  display: inline-block;
+  animation: arrowBounce 1.2s ease-in-out infinite;
+  color: rgba(255, 208, 0, 0.6);
+}
+
+@keyframes hintBob {
+  0%, 100% { opacity: 0.35; transform: translateX(-50%) translateY(0); }
+  50%       { opacity: 0.65; transform: translateX(-50%) translateY(4px); }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+/* ── "Let there be light" message ── */
+.litMsg {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 220, 80, 0.8);
+  margin-top: 1.2rem;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

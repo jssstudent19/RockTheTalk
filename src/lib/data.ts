@@ -70,11 +70,11 @@ export const members: Member[] = [
   },
   {
     name: "Preetham G",
-    role: "VP – Public Relations · Content & Designer",
+    role: "Vice President-Public Relations",
     bio: "As a Project Manager Apprentice, my goal is to master stakeholder communication — presenting updates and resolving conflicts with clarity. Twilight Team co-creator.",
     photo: "/images/members/Preetham.png",
     isOfficer: true,
-    term: "Jan–Jul 2026",
+    term: "Jan 2026–Present",
   },
   {
     name: "Jatin Kumar",
@@ -85,7 +85,7 @@ export const members: Member[] = [
     term: "Jul–Dec 2025",
   },
   {
-    name: "Adithya Verma",
+    name: "Adithya Varma",
     role: "Secretary · VP – Membership",
     bio: "Keeping the engine running with precision and care — every member's journey begins with a warm welcome.",
     photo: "/images/members/Adithya.jpg",

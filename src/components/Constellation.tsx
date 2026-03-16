@@ -15,7 +15,7 @@ const CONSTELLATIONS = [
     myth: 'The Little Dipper',
     desc: 'Seven stars curving like a ladle — with Polaris anchoring the tip.',
     color: '#004165',        // TM Loyal Blue
-    memberIndices: [0, 1, 2, 3, 4, 5, 6],
+    memberIndices: [1, 9, 6, 7, 10, 12, 14],  // Jan–Jul ExCom (excl. IPP): President, VP-Ed, VP-Mem, VP-PR, Secretary, Treasurer, SAA
     nodes: [
       { cx: 200, cy: 100 }, // 0 — Polaris (handle tip)
       { cx: 350, cy: 175 }, // 1 — δ UMi
@@ -33,7 +33,7 @@ const CONSTELLATIONS = [
     myth: 'The Lion',
     desc: 'A bold sickle of stars forming the lion\'s mane, with a sweeping tail.',
     color: '#F2DF74',        // TM Happy Yellow
-    memberIndices: [7, 8, 9, 10, 11, 12, 13, 14, 15],
+    memberIndices: [0, 2, 3, 4, 5, 8, 11, 13, 15],  // No duplicates: remaining members after Ursa Minor takes ExCom officers
     nodes: [
       { cx: 560, cy: 490 }, // 0 — Regulus (heart)
       { cx: 510, cy: 365 }, // 1 — η Leo

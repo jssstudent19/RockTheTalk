@@ -150,7 +150,7 @@ export default function Encore() {
             </div>
           </div>
 
-          <p className={styles.freeNote}>Free to attend · No preparation needed for your first visit</p>
+          <p className={styles.freeNote}>Attend as many sessions as guest without any fee</p>
         </div>
 
         {/* Right: Testimonials */}

@@ -19,7 +19,7 @@ const tmStats = [
 
 // ── ROCK THE TALK DATA ──
 const clubStats = [
-  { value: '10+', label: 'Years Strong' },
+  { value: '9+', label: 'Years Strong' },
   { value: '30+', label: 'Active Members' },
   { value: '#05843628', label: 'Club Number' },
   { value: '2016', label: 'Chartered Year' },
@@ -50,17 +50,17 @@ export default function GreenRoom() {
   }, []);
 
   return (
-    <section className={styles.section} id="green-room" ref={sectionRef} aria-label="A Safe Place to Fail – About">
+    <section className={styles.section} id="green-room" ref={sectionRef} aria-label="A Safe Space To Fail – About">
 
       {/* ── ACT BADGE HEADER ─────────────────────── */}
       <div className={`container ${styles.actHeader}`}>
         <div className={styles.actBadge}>Act I</div>
         <div className="accent-line accent-line--center" />
         <h2 className={`headline-lg ${styles.heading} reveal`}>
-          A Safe Place <span className={styles.headingAccent}>to Fail</span>
+          A Safe Space <span className={styles.headingAccent}>To Fail</span>
         </h2>
         <p className={`script-text ${styles.scriptSubhead} reveal reveal-delay-1`}>
-          Where growth begins beyond the comfort zone
+          Where leaders are made
         </p>
       </div>
 
@@ -215,7 +215,7 @@ export default function GreenRoom() {
             {/* Director quotes */}
             <blockquote className={styles.rttQuote}>
               <p className={styles.rttQuoteText}>&ldquo;What truly defines Rock The Talk is its ability to nurture confident communicators and thoughtful leaders.&rdquo;</p>
-              <cite className={styles.rttQuoteCite}>— Shashank Bhat, Division B2 Director</cite>
+              <cite className={styles.rttQuoteCite}>— Shashank Bhat, Division B Director</cite>
             </blockquote>
           </div>
 

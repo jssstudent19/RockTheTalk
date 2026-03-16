@@ -8,7 +8,7 @@ const navLinks = [
   { label: 'Constellation', href: '#constellation', desc: 'Meet our members',        num: 'II' },
   { label: 'Spotlight',     href: '#spotlight',     desc: 'Member achievements',     num: 'III' },
   { label: 'The Script',    href: '#the-script',    desc: 'Agenda & meeting flow',   num: 'IV' },
-  { label: 'The Ex-com',    href: '#excom',         desc: 'Executive committee',     num: 'V' },
+  { label: 'The Ex-Com',    href: '#excom',         desc: 'Executive committee',     num: 'V' },
   { label: 'Gallery',       href: '#gallery',       desc: 'Photos & memories',       num: 'VI' },
   { label: 'Encore',        href: '#encore',        desc: 'Join Rock The Talk',      num: 'VII' },
 ];
@@ -179,6 +179,7 @@ export default function Navbar() {
           <span className={styles.logoWords}>
             <span className={styles.logoRock}>ROCK THE</span>
             <span className={styles.logoTalk}>TALK</span>
+            <span className={styles.logoYear}>2025–26</span>
           </span>
         </a>
 
