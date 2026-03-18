@@ -18,6 +18,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Synchronously restore desktop viewport before first render */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.getItem('rtt_desktop_mode') === 'true') {
+                  var m = document.querySelector('meta[name="viewport"]');
+                  if (m) m.content = 'width=1280';
+                }
+              } catch(e) {}
+            `,
+          }}
+        />
+      </head>
       <body>
         <MobilePopup />
         <CursorTrail />

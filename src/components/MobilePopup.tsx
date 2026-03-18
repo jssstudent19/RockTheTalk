@@ -3,13 +3,17 @@
 import { useEffect, useState } from "react";
 import styles from "./MobilePopup.module.css";
 
+const LS_KEY = "rtt_desktop_mode";
+
 export default function MobilePopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Show popup on every visit if the viewport is mobile-sized
     const timer = setTimeout(() => {
-      if (window.innerWidth < 1024) {
+      const isMobile = window.innerWidth < 1024;
+      const isDesktopForced = localStorage.getItem(LS_KEY) === "true";
+      // Only show if on a mobile viewport AND desktop mode hasn't been forced
+      if (isMobile && !isDesktopForced) {
         setVisible(true);
       }
     }, 300);
@@ -17,22 +21,16 @@ export default function MobilePopup() {
   }, []);
 
   const switchToDesktop = () => {
-    // Override viewport meta to force desktop width, then reload
-    let viewportMeta = document.querySelector<HTMLMetaElement>(
-      'meta[name="viewport"]'
-    );
-    if (!viewportMeta) {
-      viewportMeta = document.createElement("meta");
-      viewportMeta.name = "viewport";
-      document.head.appendChild(viewportMeta);
-    }
-    viewportMeta.content = "width=1280";
+    // Persist the preference — the inline <head> script reads this before
+    // the next page render and sets viewport width=1280 synchronously
+    localStorage.setItem(LS_KEY, "true");
     window.location.reload();
   };
 
   const dismiss = () => setVisible(false);
 
   if (!visible) return null;
+
 
   return (
     <div className={styles.overlay}>
