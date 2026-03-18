@@ -5,7 +5,7 @@ import styles from './Navbar.module.css';
 /* ── Section navigation ─────────────────────────────── */
 const navLinks = [
   { label: 'Green Room',    href: '#green-room',   desc: 'About the club',          num: 'I' },
-  { label: 'Constellation', href: '#constellation', desc: 'Meet our members',        num: 'II' },
+  { label: 'Constellations', href: '#constellation', desc: 'Meet our members',        num: 'II' },
   { label: 'Spotlight',     href: '#spotlight',     desc: 'Member achievements',     num: 'III' },
   { label: 'The Script',    href: '#the-script',    desc: 'Agenda & meeting flow',   num: 'IV' },
   { label: 'The Ex-Com',    href: '#excom',         desc: 'Executive committee',     num: 'V' },
@@ -31,7 +31,7 @@ const resourceLinks = [
       },
       {
         label: 'Guest Booklet',
-        href: 'https://drive.google.com/file/d/1bMxm0IjFRHLNp2hCqaNne2cGUpwwm77-/view?usp=sharing',
+        href: 'https://drive.google.com/file/d/1Z1pnDu-Dhq37ZWlzfz5MK9RQKby9dfjo/view?usp=sharing',
         desc: "First-timer's welcome guide",
         icon: (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -179,7 +179,6 @@ export default function Navbar() {
           <span className={styles.logoWords}>
             <span className={styles.logoRock}>ROCK THE</span>
             <span className={styles.logoTalk}>TALK</span>
-            <span className={styles.logoYear}>2025–26</span>
           </span>
         </a>
 

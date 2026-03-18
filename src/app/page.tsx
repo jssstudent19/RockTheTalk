@@ -4,6 +4,7 @@ import GreenRoom from '@/components/GreenRoom';
 import Constellation from '@/components/Constellation';
 import Spotlight from '@/components/Spotlight';
 import TheScript from '@/components/TheScript';
+import LingoSection from '@/components/LingoSection';
 import ExCom from '@/components/ExCom';
 import Gallery from '@/components/Gallery';
 import Encore from '@/components/Encore';
@@ -23,6 +24,8 @@ export default function Home() {
         <Spotlight />
         <div className="section-divider" />
         <TheScript />
+        <div className="section-divider" />
+        <LingoSection />
         <div className="section-divider" />
         <ExCom />
         <div className="section-divider" />

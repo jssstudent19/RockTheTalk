@@ -46,25 +46,17 @@
 }
 .logoRock {
   font-family: var(--font-headline);
-  font-weight: 700;
-  font-size: 0.58rem;
-  letter-spacing: 0.22em;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
   color: var(--white);
   text-transform: uppercase;
 }
 .logoTalk {
   font-family: var(--font-headline);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1rem;
-  letter-spacing: 0.1em;
-  color: var(--white);
-  text-transform: uppercase;
-}
-.logoYear {
-  font-family: var(--font-headline);
-  font-weight: 700;
-  font-size: 0.58rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   color: var(--white);
   text-transform: uppercase;
 }

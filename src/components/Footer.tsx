@@ -21,7 +21,7 @@ export default function Footer() {
           <ul className={styles.navList}>
             {[
               { label: 'The Green Room', href: '#green-room' },
-              { label: 'The Constellation', href: '#constellation' },
+              { label: 'Our Constellations', href: '#constellation' },
               { label: 'The Spotlight', href: '#spotlight' },
               { label: 'The Script', href: '#the-script' },
               { label: 'The Ex-Com', href: '#excom' },

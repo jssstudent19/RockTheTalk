@@ -22,7 +22,7 @@ export const members: Member[] = [
   {
     name: "Taksha Yadav",
     role: "President · Editor",
-    bio: "Co-creator of the Twilight Team's creative vision. Contest champion — Area Level Winner for Evaluations, represented the club at Division level.",
+    bio: "Current President of Rock The Talk.Contest champion — Area Level Winner for Evaluations, represented the club at Division level.Personally and professionally ,I have been gifted by this club in abundance.As a President,I only hope that I can give back even a fraction of what this club has given me.",
     photo: "/images/members/Taksha.png",
     isOfficer: true,
     contestWin: "Evaluations Contest – Division Level",

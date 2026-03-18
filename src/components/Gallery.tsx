@@ -9,7 +9,7 @@ const galleryPhotos = [
   { src: '/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.11.jpeg',     caption: 'RTT Moments',      tilt: '-2deg' },
   { src: '/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.08.jpeg',     caption: 'Stage & Smiles',   tilt: '5deg'  },
   { src: '/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09 (1).jpeg', caption: 'Victory Lap',      tilt: '-3deg' },
-  { src: '/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.09.jpeg',     caption: 'Season Highlights', tilt: '2deg' },
+  { src: '/images/celebrations/WhatsApp Image 2026-02-18 at 11.08.09.jpeg',     caption: 'Club Vibes',        tilt: '2deg' },
   { src: '/images/celebrations/WhatsApp Image 2026-03-14 at 04.58.27.jpeg',     caption: 'The Grand Finale', tilt: '-5deg' },
 ];
 

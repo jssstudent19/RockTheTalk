@@ -294,14 +294,14 @@ export default function Constellation() {
   const activeMembers = active.memberIndices.map(i => members[i]).filter(Boolean);
 
   return (
-    <section className={styles.section} id="constellation" aria-label="The Constellation – Meet Our Members">
+    <section className={styles.section} id="constellation" aria-label="Our Constellations – Meet Our Members">
 
       {/* ── HEADER ── */}
       <div className={styles.header}>
         <div className={styles.actBadge}>Act II</div>
         <div className="accent-line accent-line--center" />
         <h2 className={`headline-lg ${styles.heading}`}>
-          The <span className={styles.headingAccent}>Constellation</span>
+          Our <span className={styles.headingAccent}>Constellations</span>
         </h2>
         <p className={`body-lg ${styles.subhead}`}>
           30 members mapped across four real constellations. Pick a cluster — hover any star, click to meet them.

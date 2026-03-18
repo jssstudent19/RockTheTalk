@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CursorTrail from "@/components/CursorTrail";
 import ScrollWalker from "@/components/ScrollWalker";
+import MobilePopup from "@/components/MobilePopup";
 
 export const metadata: Metadata = {
   title: "Rock The Talk | Toastmasters Club #05843628",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        <MobilePopup />
         <CursorTrail />
         <ScrollWalker />
         {children}
