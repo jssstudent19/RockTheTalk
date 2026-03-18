@@ -19,18 +19,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Synchronously restore desktop viewport before first render */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/*
+          NO static viewport meta here.
+          The inline script runs first and CREATES the tag with the correct
+          content before the browser does any layout — so there is no
+          initial mobile-width commit followed by a jarring re-layout.
+        */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.getItem('rtt_desktop_mode') === 'true') {
-                  var m = document.querySelector('meta[name="viewport"]');
-                  if (m) m.content = 'width=1280';
-                }
-              } catch(e) {}
-            `,
+            __html: `(function(){
+              var c = 'width=device-width,initial-scale=1';
+              try { if(localStorage.getItem('rtt_desktop_mode')==='true') c = 'width=1280'; } catch(e){}
+              var m = document.createElement('meta');
+              m.name = 'viewport';
+              m.content = c;
+              document.head.appendChild(m);
+            })();`,
           }}
         />
       </head>
