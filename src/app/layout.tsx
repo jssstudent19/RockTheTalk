@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CursorTrail from "@/components/CursorTrail";
-import MobilePopup from "@/components/MobilePopup";
+// import MobilePopup from "@/components/MobilePopup";
 import ParrotGame from "@/components/ParrotGame";
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <MobilePopup />
+        {/* <MobilePopup /> */}
         <CursorTrail />
         <ParrotGame />
         {children}
