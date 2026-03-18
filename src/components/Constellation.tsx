@@ -147,9 +147,15 @@ function ConstellationSVG({
           <stop offset="0%" stopColor="#004165" stopOpacity="0.18" />
           <stop offset="100%" stopColor="#0D0D0D" />
         </radialGradient>
+        {/* Glow for star nodes */}
         <filter id="glow">
           <feGaussianBlur stdDeviation="4" result="blur"/>
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        {/* Stronger glow specifically for flowing line pulses */}
+        <filter id="lineGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
         {nodes.map((n, i) => (
           <clipPath key={i} id={`clip-${constellation.id}-${i}`}>
@@ -174,18 +180,53 @@ function ConstellationSVG({
         {constellation.name.toUpperCase()}
       </text>
 
-      {/* Constellation lines with draw-on animation */}
+      {/* Constellation lines – base + flowing energy pulse */}
       {lines.map(([a, b], li) => {
         const na = nodes[a], nb = nodes[b];
         const len = Math.hypot(nb.cx - na.cx, nb.cy - na.cy);
+        // Pulse dash: a bright segment ~18% of the line length travelling along it
+        const pulseLen = Math.max(40, len * 0.18);
+        const gap      = len - pulseLen;
+        // Each line gets a slightly different speed & delay for organic feel
+        const duration = (6 + li * 0.6).toFixed(2);
+        const delay    = (li * 0.9).toFixed(2);
         return (
-          <line key={li}
-            x1={na.cx} y1={na.cy} x2={nb.cx} y2={nb.cy}
-            stroke={color} strokeWidth="1.5" opacity="0.65"
-            strokeDasharray={len}
-            strokeDashoffset={drawn ? 0 : len}
-            style={{ transition: `stroke-dashoffset 0.9s ease ${0.15 * li}s` }}
-          />
+          <g key={li}>
+            {/* 1. Glowing base line — draws on when tab activates */}
+            <line
+              x1={na.cx} y1={na.cy} x2={nb.cx} y2={nb.cy}
+              stroke={color} strokeWidth="2" opacity="0.45"
+              strokeDasharray={len}
+              strokeDashoffset={drawn ? 0 : len}
+              style={{ transition: `stroke-dashoffset 0.9s ease ${0.15 * li}s` }}
+              filter="url(#lineGlow)"
+            />
+            {/* 2. Thin crisp base line (no blur) for sharpness */}
+            <line
+              x1={na.cx} y1={na.cy} x2={nb.cx} y2={nb.cy}
+              stroke={color} strokeWidth="1" opacity="0.55"
+              strokeDasharray={len}
+              strokeDashoffset={drawn ? 0 : len}
+              style={{ transition: `stroke-dashoffset 0.9s ease ${0.15 * li}s` }}
+            />
+            {/* 3. Flowing bright pulse — only renders after draw-on completes */}
+            {drawn && (
+              <line
+                x1={na.cx} y1={na.cy} x2={nb.cx} y2={nb.cy}
+                stroke={color} strokeWidth="3.5" opacity="1"
+                strokeDasharray={`${pulseLen} ${gap}`}
+                strokeLinecap="round"
+                filter="url(#lineGlow)"
+                className={styles.flowPulse}
+                style={{
+                  animationDuration: `${duration}s`,
+                  animationDelay: `${delay}s`,
+                  // start the dash at the end so it flows from node-a to node-b
+                  strokeDashoffset: len,
+                } as React.CSSProperties}
+              />
+            )}
+          </g>
         );
       })}
 

@@ -150,6 +150,16 @@
   to   { transform: rotate(360deg); }
 }
 
+/* Flowing energy pulse along constellation lines */
+.flowPulse {
+  animation: flowPulse linear infinite;
+  /* animationDuration & animationDelay set inline per-line */
+}
+@keyframes flowPulse {
+  from { stroke-dashoffset: 1200; }
+  to   { stroke-dashoffset: -1200; }
+}
+
 /* Ambient twinkling bg stars */
 .twinkle {
   animation: twinkle 3s ease-in-out infinite alternate;
