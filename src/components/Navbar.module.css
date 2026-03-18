@@ -324,7 +324,10 @@
   overflow: hidden;
   transition: max-height 0.4s var(--ease-out);
 }
-.mobileMenu.mobileOpen { max-height: 800px; }
+.mobileMenu.mobileOpen { 
+  max-height: calc(100vh - 70px); 
+  overflow-y: auto; 
+}
 
 .mobileLink {
   font-family: var(--font-headline);

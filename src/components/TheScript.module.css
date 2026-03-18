@@ -745,12 +745,9 @@
 
   /* ── Mobile Timeline: left-spine single-column layout ── */
 
-  /* Move the vertical spine to the left */
+  /* Hide the vertical spine on mobile */
   .timeline::before {
-    left: 20px;
-    top: 56px;
-    bottom: 56px;
-    transform: none;
+    display: none;
   }
 
   /* Reset all items to LTR stacked layout */
