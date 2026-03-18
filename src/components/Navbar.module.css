@@ -400,5 +400,6 @@
 @media (max-width: 960px) {
   .links, .cta { display: none; }
   .burger { display: flex; }
-  .mobileMenu { display: flex; }
+  /* mobileMenu stays display:none — only shown when mobileOpen is toggled */
+  .mobileMenu.mobileOpen { display: flex; }
 }

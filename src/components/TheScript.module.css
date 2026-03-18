@@ -742,16 +742,76 @@
 @media (max-width: 768px) {
   .header { margin-bottom: 2.5rem; }
   .excomSection { padding: 3rem 1.25rem; border-radius: 20px; }
-  .timeline::before { left: 24px; transform: none; }
-  .timeline::after { left: 24px; transform: none; }
-  .timelineItem {
-    grid-template-columns: 60px 1px 1fr;
-    gap: 1.25rem;
+
+  /* ── Mobile Timeline: left-spine single-column layout ── */
+
+  /* Move the vertical spine to the left */
+  .timeline::before {
+    left: 20px;
+    top: 56px;
+    bottom: 56px;
+    transform: none;
   }
-  .right { direction: ltr; }
-  .stepIcon { width: 50px; height: 50px; font-size: 1.5rem; }
-  .connectorDot { width: 14px; height: 14px; }
-  .timelineCard { padding: 1.25rem 1.5rem; }
+
+  /* Reset all items to LTR stacked layout */
+  .timelineItem,
+  .right {
+    direction: ltr;
+    display: grid;
+    /* col 1: step badge | col 2: card fills the rest */
+    grid-template-columns: 44px 1fr;
+    grid-template-rows: auto;
+    gap: 0 1rem;
+    align-items: start;
+    padding: 0.75rem 0;
+  }
+
+  /* Step number sits in col 1, centred on the spine */
+  .timelineStep {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 0.25rem;
+  }
+
+  /* Hide the horizontal connector – not needed in stacked layout */
+  .timelineConnector {
+    display: none;
+  }
+
+  /* Card spans col 2 */
+  .timelineCard {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 1rem 1.25rem;
+    /* reset side borders for alternating items */
+    border-left: 3px solid var(--loyal-blue);
+    border-right: none;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.06);
+  }
+
+  /* Reset right-variant border */
+  .right .timelineCard {
+    border-left: 3px solid var(--true-maroon);
+    border-right: none;
+  }
+
+  /* Step number sizing */
+  .stepNum {
+    font-size: 1rem;
+    min-width: 38px;
+    padding: 0.2rem 0.35rem;
+  }
+
+  /* Start / End markers stay centred but smaller */
+  .timelineMarkerStart,
+  .timelineMarkerEnd {
+    margin-left: 0;
+    align-items: center;
+  }
+
   .officersGrid { grid-template-columns: repeat(2, 1fr); }
   .termLabel { padding: 0.6rem 1.25rem; font-size: 0.75rem; }
   .termTabBtns { flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
@@ -768,5 +828,10 @@
   .termLabel { width: 100%; justify-content: center; }
   .excomSection { margin-top: 1.5rem; padding: 2rem 1rem; }
   .excomSub { font-size: 0.95rem; margin-bottom: 2rem; }
-  .timelineCard { padding: 1rem 1.25rem; }
+  .timelineCard { padding: 0.875rem 1rem; }
+  .cardTitle { font-size: 1rem; }
+  .timelineItem, .right {
+    grid-template-columns: 38px 1fr;
+    gap: 0 0.75rem;
+  }
 }

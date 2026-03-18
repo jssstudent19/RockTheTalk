@@ -2,10 +2,30 @@
 import styles from './Spotlight.module.css';
 
 const winners = [
-  { name: 'Rajkumar Gupta', title: 'Director, Technical Support', contest: 'International Speech Contest', result: 'Area Winner → Division Level', photo: '/images/members/Rajkumar.png', rank: 1 },
-  { name: 'Taksha Yadav', title: 'President', contest: 'Evaluations Contest', result: 'Area Winner → Division Level', photo: '/images/members/Taksha.png', rank: 2 },
-  { name: 'Satrajit Kar', title: 'Sr. Manager, Technical Support', contest: 'Humorous Speech Contest', result: 'Club Winner → Area Level', photo: '/images/members/Satrajit.png', rank: 3 },
-  { name: 'Mrinalini Sarabada', title: 'Member', contest: 'Table Topics Contest', result: '3rd Place — Area Level', photo: '/images/members/Mrinalini.jpg', rank: 4 },
+  {
+    name: 'Rajkumar Gupta',
+    contest: 'International Speech Contest',
+    achievement: 'Won at Area level and represented the club at Division level',
+    photo: '/images/members/Rajkumar.png',
+  },
+  {
+    name: 'Taksha Yadav',
+    contest: 'Evaluations Contest',
+    achievement: 'Won at Area level and represented the club at Division level',
+    photo: '/images/members/Taksha.png',
+  },
+  {
+    name: 'Satrajit Kar',
+    contest: 'Humorous Speech Contest',
+    achievement: 'Won at Club level and represented the club at Area level',
+    photo: '/images/members/Satrajit.png',
+  },
+  {
+    name: 'Mrinalini Sarabada',
+    contest: 'Table Topics Contest',
+    achievement: 'Won at Club level, represented the club, and achieved 3rd place at Area level',
+    photo: '/images/members/Mrinalini.jpg',
+  },
 ];
 
 const clubAwards = [
@@ -110,77 +130,32 @@ export default function Spotlight() {
           </div>
         </div>
 
-        {/* ── CONTEST CHAMPIONS — Asymmetric Podium ── */}
+        {/* ── CONTEST CHAMPIONS ── */}
         <div className={styles.podiumSection}>
           <p className={`headline-sm ${styles.sectionLabel}`}>Contest Champions <span className={styles.seasonTag}>season 2025–26</span></p>
 
-          <div className={styles.podium}>
-            {/* Flanking cards (2 & 4) */}
-            <div className={styles.podiumSide}>
-              {[winners[1], winners[3]].map((w) => (
-                <div key={w.name} className={`${styles.sideCard}`}>
-                  <div className={styles.sideCardPhoto}>
-                    <img src={w.photo} alt={w.name} loading="lazy"
-                      onError={e => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(w.name)}&background=3b0104&color=F2DF74&size=200&bold=true`; }} />
-                    <div className={styles.sideCardGradient} aria-hidden="true" />
-                  </div>
-                  <div className={styles.sideCardBody}>
-                    <div className={styles.rankBubble}>#{w.rank}</div>
-                    <h3 className={styles.sideCardName}>{w.name}</h3>
-                    <p className={styles.sideCardContest}>{w.contest}</p>
-                    <span className={styles.resultPill}>{w.result}</span>
-                  </div>
+          <div className={styles.winnersGrid}>
+            {winners.map((w) => (
+              <div key={w.name} className={styles.winnerCard}>
+                <div className={styles.winnerPhoto}>
+                  <img
+                    src={w.photo}
+                    alt={w.name}
+                    loading="lazy"
+                    onError={e => {
+                      (e.target as HTMLImageElement).src =
+                        `https://ui-avatars.com/api/?name=${encodeURIComponent(w.name)}&background=004165&color=F2DF74&size=300&bold=true`;
+                    }}
+                  />
                 </div>
-              ))}
-            </div>
-
-            {/* Hero card — #1 */}
-            <div className={styles.heroCard}>
-              <div className={styles.heroCardBg}>
-                <img src={winners[0].photo} alt={winners[0].name} loading="lazy"
-                  onError={e => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(winners[0].name)}&background=004165&color=F2DF74&size=400&bold=true`; }} />
-              </div>
-              <div className={styles.heroCardOverlay} aria-hidden="true" />
-              <div className={styles.spotlightBeam} aria-hidden="true" />
-              <div className={styles.heroCardContent}>
-                <div className={styles.crownSvgWrap}>
-                  <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className={styles.crownSvg}>
-                    <path d="M2.5 19h19v2h-19v-2zm17.9-10.7l-4.2 3.6-4.2-7.9-4.2 7.9-4.2-3.6 2.1 8.7h12.6l2.1-8.7z"/>
-                  </svg>
-                </div>
-                <div className={styles.heroRank}>#1 — Area Winner</div>
-                <h3 className={styles.heroName}>{winners[0].name}</h3>
-                <p className={styles.heroTitle}>{winners[0].title}</p>
-                <div className={styles.heroDivider} aria-hidden="true" />
-                <p className={styles.heroContest}>{winners[0].contest}</p>
-                <span className={`${styles.resultPill} ${styles.resultPillHero}`}>{winners[0].result}</span>
-              </div>
-            </div>
-
-            {/* Flanking cards (3) & Celeb */}
-            <div className={styles.podiumSide}>
-              {[winners[2]].map((w) => (
-                <div key={w.name} className={`${styles.sideCard} ${styles.sideCardTall}`}>
-                  <div className={styles.sideCardPhoto}>
-                    <img src={w.photo} alt={w.name} loading="lazy"
-                      onError={e => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(w.name)}&background=3b0104&color=F2DF74&size=200&bold=true`; }} />
-                    <div className={styles.sideCardGradient} aria-hidden="true" />
-                  </div>
-                  <div className={styles.sideCardBody}>
-                    <div className={styles.rankBubble}>#{w.rank}</div>
-                    <h3 className={styles.sideCardName}>{w.name}</h3>
-                    <p className={styles.sideCardContest}>{w.contest}</p>
-                    <span className={styles.resultPill}>{w.result}</span>
-                  </div>
-                </div>
-              ))}
-              <div className={styles.celebCard}>
-                <img src="/images/celebrations/WhatsApp Image 2026-03-13 at 20.31.08 (1).jpeg" alt="Club celebration" loading="lazy" />
-                <div className={styles.celebCardOverlay}>
-                  <span>RTT on stage</span>
+                <div className={styles.winnerOverlay} aria-hidden="true" />
+                <div className={styles.winnerBody}>
+                  <h3 className={styles.winnerName}>{w.name}</h3>
+                  <p className={styles.winnerContest}>{w.contest}</p>
+                  <p className={styles.winnerAchievement}>{w.achievement}</p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
