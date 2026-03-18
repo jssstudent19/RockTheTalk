@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CursorTrail from "@/components/CursorTrail";
-import ScrollWalker from "@/components/ScrollWalker";
 import MobilePopup from "@/components/MobilePopup";
+import ParrotGame from "@/components/ParrotGame";
 
 export const metadata: Metadata = {
   title: "Rock The Talk | Toastmasters Club #05843628",
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <MobilePopup />
         <CursorTrail />
-        <ScrollWalker />
+        <ParrotGame />
         {children}
       </body>
     </html>

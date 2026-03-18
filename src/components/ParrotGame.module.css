@@ -1,0 +1,372 @@
+/* ============================================================
+   ParrotGame.module.css
+   Unified — walking mascot + parrot game
+   Brand: loyal-blue #004165 | true-maroon #772432 | yellow #F2DF74
+   ============================================================ */
+
+/* ── Walking mascot container ─────────────────────────────── */
+.walkerContainer {
+  position: fixed;
+  right: 18px;
+  width: 80px;
+  z-index: 9000;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Smooth vertical tracking — the key to proper scroll sync */
+  transition: top 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+/* ── SVG mascot figure ─────────────────────────────────────── */
+.svg {
+  width: 64px;
+  height: 128px;
+  overflow: visible;
+  filter: drop-shadow(0 4px 12px rgba(0, 65, 101, 0.55));
+  cursor: default;
+}
+
+/* Flip when going up */
+.facingUp {
+  transform: scaleX(-1);
+}
+
+/* ── Walking keyframes ─────────────────────────────────────── */
+@keyframes legLeftWalk {
+  0%   { transform: rotate(-28deg); transform-origin: 26px 70px; }
+  50%  { transform: rotate(28deg);  transform-origin: 26px 70px; }
+  100% { transform: rotate(-28deg); transform-origin: 26px 70px; }
+}
+@keyframes legRightWalk {
+  0%   { transform: rotate(28deg);  transform-origin: 34px 70px; }
+  50%  { transform: rotate(-28deg); transform-origin: 34px 70px; }
+  100% { transform: rotate(28deg);  transform-origin: 34px 70px; }
+}
+@keyframes armLeftSwing {
+  0%   { transform: rotate(22deg);  transform-origin: 22px 48px; }
+  50%  { transform: rotate(-22deg); transform-origin: 22px 48px; }
+  100% { transform: rotate(22deg);  transform-origin: 22px 48px; }
+}
+@keyframes armRightSwing {
+  0%   { transform: rotate(-22deg); transform-origin: 38px 48px; }
+  50%  { transform: rotate(22deg);  transform-origin: 38px 48px; }
+  100% { transform: rotate(-22deg); transform-origin: 38px 48px; }
+}
+@keyframes bodyBob {
+  0%, 100% { transform: translateY(0px); }
+  25%       { transform: translateY(-3px); }
+  75%       { transform: translateY(2px); }
+}
+@keyframes headNod {
+  0%, 100% { transform: rotate(0deg);   transform-origin: 30px 30px; }
+  40%       { transform: rotate(-4deg); transform-origin: 30px 30px; }
+  80%       { transform: rotate(4deg);  transform-origin: 30px 30px; }
+}
+@keyframes idleSway {
+  0%, 100% { transform: rotate(0deg)    scale(1);    transform-origin: bottom center; }
+  33%       { transform: rotate(-1.5deg) scale(1.01); transform-origin: bottom center; }
+  66%       { transform: rotate(1.5deg)  scale(1.01); transform-origin: bottom center; }
+}
+
+/* Walking state — animate limbs */
+.svg.walking .legLeft   { animation: legLeftWalk  0.42s ease-in-out infinite; }
+.svg.walking .legRight  { animation: legRightWalk 0.42s ease-in-out infinite; }
+.svg.walking .armLeft   { animation: armLeftSwing 0.42s ease-in-out infinite; }
+.svg.walking .armRight  { animation: armRightSwing 0.42s ease-in-out infinite; }
+.svg.walking .footLeft  { animation: legLeftWalk  0.42s ease-in-out infinite; }
+.svg.walking .footRight { animation: legRightWalk 0.42s ease-in-out infinite; }
+.svg.walking .torso     { animation: bodyBob      0.42s ease-in-out infinite; }
+.svg.walking .head      { animation: headNod      0.84s ease-in-out infinite; }
+
+/* Idle state — gentle sway */
+.svg.idle {
+  animation: idleSway 3s ease-in-out infinite;
+}
+.svg.idle .legLeft,
+.svg.idle .legRight,
+.svg.idle .armLeft,
+.svg.idle .armRight,
+.svg.idle .footLeft,
+.svg.idle .footRight,
+.svg.idle .torso,
+.svg.idle .head {
+  animation: none;
+  transform: none;
+}
+
+/* ── Speech bubble ─────────────────────────────────────────── */
+.bubble {
+  background: #fff;
+  color: #004165;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  padding: 7px 11px;
+  border-radius: 12px 12px 4px 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22), 0 0 0 2px rgba(242,223,116,0.4);
+  max-width: 158px;
+  text-align: center;
+  position: relative;
+  animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 14px;
+  border: 8px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+/* Reference parrot shown in idle bubble */
+.bubbleParrot {
+  width: 72px;
+  height: 72px;
+  margin: 6px auto 2px;
+  animation: parrotFloat 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(242,223,116,0.5));
+}
+.bubbleHint {
+  display: block;
+  font-size: 0.62rem;
+  color: #772432;
+  font-weight: 700;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+.bubbleHidden {
+  opacity: 0;
+  transform: scale(0.85);
+  pointer-events: none;
+}
+
+@keyframes bubblePop {
+  from { opacity: 0; transform: scale(0.7) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Timer colours ───────────────────────────────────────── */
+.timerOk     { color: #22aa44; font-weight: 900; }
+.timerWarn   { color: #f59e0b; font-weight: 900; }
+.timerDanger {
+  color: #dc2626;
+  font-weight: 900;
+  animation: timerPulse 0.5s ease-in-out infinite alternate;
+}
+@keyframes timerPulse {
+  from { opacity: 1; }
+  to   { opacity: 0.45; }
+}
+
+/* ── Help / Retry button ─────────────────────────────────── */
+.helpBtn {
+  background: linear-gradient(135deg, #F2DF74 0%, #e8cc50 100%);
+  color: #004165;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 4px 14px rgba(242, 223, 116, 0.5);
+  animation: btnPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  margin-top: 2px;
+}
+.helpBtn:hover {
+  transform: translateY(-2px) scale(1.07);
+  box-shadow: 0 8px 24px rgba(242, 223, 116, 0.7);
+}
+@keyframes btnPop {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Dust puff ─────────────────────────────────────────────── */
+@keyframes dustPuff {
+  0%   { opacity: 0.8; transform: scale(0.5) translateX(0); }
+  100% { opacity: 0;   transform: scale(2.5) translateX(6px); }
+}
+.dust {
+  position: absolute;
+  bottom: 4px;
+  right: 2px;
+  width: 14px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,223,116,0.7) 0%, transparent 70%);
+  animation: dustPuff 0.38s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ── Parrots scattered across the page ─────────────────────── */
+.parrot {
+  position: absolute;
+  z-index: 9997;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.parrotIdle {
+  animation:
+    parrotFloat  2.4s ease-in-out infinite,
+    parrotIn     0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  cursor: pointer;
+}
+.parrotIdle:hover {
+  animation:
+    parrotFloat  2.4s ease-in-out infinite,
+    parrotWiggle 0.35s ease-in-out;
+  transform: scale(1.25) rotate(-10deg);
+}
+
+.parrotFound {
+  animation: parrotCatch 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes parrotFloat {
+  0%, 100% { transform: translateY(0)    rotate(-4deg); }
+  50%       { transform: translateY(-12px) rotate(4deg); }
+}
+@keyframes parrotIn {
+  from { opacity: 0; transform: scale(0) rotate(360deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes parrotWiggle {
+  0%   { transform: scale(1.25) rotate(-10deg); }
+  50%  { transform: scale(1.3)  rotate(10deg); }
+  100% { transform: scale(1.25) rotate(-10deg); }
+}
+@keyframes parrotCatch {
+  0%   { transform: scale(1);   opacity: 1; }
+  40%  { transform: scale(1.8) rotate(25deg); opacity: 1; }
+  100% { transform: scale(0)   rotate(-90deg); opacity: 0; }
+}
+
+/* ── Win modal overlay ──────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(7px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease both;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  background: linear-gradient(135deg, #004165 0%, #003050 100%);
+  border: 1px solid rgba(242, 223, 116, 0.35);
+  border-radius: 22px;
+  padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1.5rem, 6vw, 3rem);
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+  animation: modalPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.7) translateY(40px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modalParrots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+.modalParrot {
+  width: 60px;
+  height: 60px;
+  animation: parrotDance 0.7s ease-in-out infinite alternate;
+}
+.modalParrot:nth-child(odd) { animation-direction: alternate-reverse; }
+@keyframes parrotDance {
+  from { transform: translateY(0)    rotate(-12deg) scale(1); }
+  to   { transform: translateY(-12px) rotate(12deg) scale(1.12); }
+}
+
+.modalTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #F2DF74;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.modalBody {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.modalBodySmall {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+.previewParrot {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  animation: parrotDance 0.9s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 14px rgba(242,223,116,0.55));
+}
+.modalBtn {
+  background: linear-gradient(135deg, #F2DF74 0%, #e8cc50 100%);
+  color: #004165;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.875rem 2.25rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(242, 223, 116, 0.4);
+}
+.modalBtn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 36px rgba(242, 223, 116, 0.6);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .walkerContainer { display: none; }
+  .parrot { width: 56px; height: 56px; }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .walkerContainer { display: none; }
+}

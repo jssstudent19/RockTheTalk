@@ -153,22 +153,7 @@ export default function ScrollWalker() {
             className={styles.footRight}
           />
 
-          {/* Speech bubble when idle */}
-          <g className={styles.bubble}>
-            {/* Bubble background */}
-            <rect x="-55" y="-18" width="90" height="30" rx="6" fill="#F2DF74" />
-            {/* Tail pointing down toward the head */}
-            <polygon points="22,12 26,20 30,12" fill="#F2DF74" />
-            {/* "I" */}
-            <text x="-43" y="-4" fontSize="7" fontWeight="800" fill="#004165" fontFamily="Montserrat, Arial, sans-serif">I</text>
-            {/* Brand-maroon SVG heart (no emoji) */}
-            <path
-              d="M-35,-8 C-35,-11 -31,-13 -29,-10 C-27,-13 -23,-11 -23,-8 C-23,-5 -29,0 -29,0 C-29,0 -35,-5 -35,-8 Z"
-              fill="#772432"
-            />
-            {/* "Toastmasters" */}
-            <text x="-21" y="-4" fontSize="7" fontWeight="800" fill="#004165" fontFamily="Montserrat, Arial, sans-serif">Toastmasters</text>
-          </g>
+
         </svg>
 
         {/* Walking dust puff */}
