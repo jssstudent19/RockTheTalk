@@ -45,7 +45,7 @@ export default function ScrollWalker() {
   return (
     <div
       className={styles.walkerContainer}
-      style={{ top: `calc(${pct}% - 0px)` }}
+      style={{ top: `max(260px, ${pct}%)` }}
       aria-hidden="true"
     >
       <div
