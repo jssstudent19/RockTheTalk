@@ -6,14 +6,12 @@
 /* ---- Container ---- */
 .walkerContainer {
   position: fixed;
+  top: 50%;
   right: 18px;
   width: 64px;
   height: 64px;
   z-index: 9000;
   pointer-events: none;
-  /* smooth vertical tracking */
-  transition: top 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Keep at least partially on screen */
   transform: translateY(-50%);
 }
 

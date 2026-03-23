@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './ScrollWalker.module.css';
 
 export default function ScrollWalker() {
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollDir, setScrollDir] = useState<'down' | 'up'>('down');
   const [walking, setWalking] = useState(false);
+  const [scrollDir, setScrollDir] = useState<'down' | 'up'>('down');
   const lastScrollY = useRef(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -18,7 +17,6 @@ export default function ScrollWalker() {
         const currentY = window.scrollY;
         const dir = currentY >= lastScrollY.current ? 'down' : 'up';
         lastScrollY.current = currentY;
-        setScrollY(currentY);
         setScrollDir(dir);
         setWalking(true);
 
@@ -35,17 +33,9 @@ export default function ScrollWalker() {
     };
   }, []);
 
-  // Map scroll position to vertical percentage (0–100) along the page
-  const docHeight =
-    typeof document !== 'undefined'
-      ? document.documentElement.scrollHeight - window.innerHeight
-      : 1;
-  const pct = docHeight > 0 ? Math.min(100, (scrollY / docHeight) * 100) : 0;
-
   return (
     <div
       className={styles.walkerContainer}
-      style={{ top: `max(260px, ${pct}%)` }}
       aria-hidden="true"
     >
       <div
