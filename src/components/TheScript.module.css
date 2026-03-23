@@ -3,7 +3,7 @@
   background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
   background-size: 100% 2.5rem;
   color: var(--text-dark);
-  padding: var(--section-pad) 0;
+  padding: calc(var(--section-pad) + 80px) 0 var(--section-pad);
   position: relative;
   overflow: hidden;
 }
