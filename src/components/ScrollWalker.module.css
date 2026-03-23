@@ -8,8 +8,8 @@
   position: fixed;
   top: 50%;
   right: 18px;
-  width: 64px;
-  height: 64px;
+  width: 45px;
+  height: 90px;
   z-index: 9000;
   pointer-events: none;
   transform: translateY(-50%);
@@ -36,8 +36,8 @@
 
 /* ---- SVG sizing ---- */
 .svg {
-  width: 64px;
-  height: 128px;
+  width: 45px;
+  height: 90px;
   overflow: visible;
 }
 
