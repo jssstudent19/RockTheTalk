@@ -29,26 +29,26 @@ const winners = [
 ];
 
 const clubAwards = [
-  { 
-    name: 'Spirit of 92', 
+  {
+    name: 'Spirit of 92',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: 'PR - Essence Award', 
+  {
+    name: 'PR - Essence Award',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <circle cx="12" cy="12" r="7" strokeOpacity="0.5" />
         <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fontSize="8" fontWeight="bold" fill="currentColor" stroke="none">PR</text>
       </svg>
-    ) 
+    )
   },
-  { 
-    name: 'R.E.E.L Award', 
+  {
+    name: 'R.E.E.L Award',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
@@ -61,16 +61,16 @@ const clubAwards = [
         <line x1="17" y1="7" x2="22" y2="7" />
         <circle cx="12" cy="12" r="2" />
       </svg>
-    ) 
+    )
   },
-  { 
-    name: 'Echos Award', 
+  {
+    name: 'Echos Award',
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="2" />
         <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14" />
       </svg>
-    ) 
+    )
   },
 ];
 
@@ -132,7 +132,7 @@ export default function Spotlight() {
 
         {/* ── CONTEST CHAMPIONS ── */}
         <div className={styles.podiumSection}>
-          <p className={`headline-sm ${styles.sectionLabel}`}>Contest Champions <span className={styles.seasonTag}>season 2025–26</span></p>
+          <p className={`headline-sm ${styles.sectionLabel}`}> Contest Champions</p>
 
           <div className={styles.winnersGrid}>
             {winners.map((w) => (
