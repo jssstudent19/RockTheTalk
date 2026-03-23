@@ -1,47 +1,15 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import styles from './ScrollWalker.module.css';
 
 export default function ScrollWalker() {
-  const [walking, setWalking] = useState(false);
-  const [scrollDir, setScrollDir] = useState<'down' | 'up'>('down');
-  const lastScrollY = useRef(0);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const rafRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        const currentY = window.scrollY;
-        const dir = currentY >= lastScrollY.current ? 'down' : 'up';
-        lastScrollY.current = currentY;
-        setScrollDir(dir);
-        setWalking(true);
-
-        if (timerRef.current) clearTimeout(timerRef.current);
-        timerRef.current = setTimeout(() => setWalking(false), 300);
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timerRef.current) clearTimeout(timerRef.current);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
   return (
     <div
       className={styles.walkerContainer}
       aria-hidden="true"
     >
       <div
-        className={`${styles.figure} ${walking ? styles.walking : styles.idle} ${
-          scrollDir === 'up' ? styles.facingUp : styles.facingDown
-        }`}
+        className={`${styles.figure} ${styles.idle} ${styles.facingDown}`}
       >
         {/* Inline SVG stick figure in brand colors */}
         <svg
@@ -147,9 +115,6 @@ export default function ScrollWalker() {
         </svg>
 
         {/* Walking dust puff */}
-        {walking && (
-          <span className={styles.dust} aria-hidden="true" />
-        )}
       </div>
     </div>
   );

@@ -130,35 +130,9 @@ const GAME_SECONDS  = 30;
    Main component — owns both the walking mascot and the game
 ───────────────────────────────────────────────────────────── */
 export default function ParrotGame() {
-  /* ── Scroll tracking ── */
-  const [scrollPct, setScrollPct]   = useState(0);
-  const [walking,  setWalking]      = useState(false);
-  const [facingUp, setFacingUp]     = useState(false);
-  const lastY   = useRef(0);
-  const walkRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const rafRef  = useRef<number | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        const y = window.scrollY;
-        const docH = document.documentElement.scrollHeight - window.innerHeight;
-        setScrollPct(docH > 0 ? Math.min(100, (y / docH) * 100) : 0);
-        setFacingUp(y < lastY.current);
-        lastY.current = y;
-        setWalking(true);
-        if (walkRef.current) clearTimeout(walkRef.current);
-        walkRef.current = setTimeout(() => setWalking(false), 350);
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (walkRef.current) clearTimeout(walkRef.current);
-      if (rafRef.current)  cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
+  /* ── Scroll tracking (removed) ── */
+  const walking = false;
+  const facingUp = false;
 
   /* ── Game state ── */
   const [phase, setPhase]         = useState<'idle' | 'preview' | 'active' | 'won' | 'lost'>('idle');
@@ -203,15 +177,11 @@ export default function ParrotGame() {
   /* ── Timer colour ── */
   const timerCls = timeLeft <= 10 ? styles.timerDanger : timeLeft <= 20 ? styles.timerWarn : styles.timerOk;
 
-  /* ── Walker position: clamp so it stays fully on screen ── */
-  const walkerTop = `calc(${scrollPct}vh - 0px)`;
-
   return (
     <>
       {/* ── Walking mascot + attached game UI ── */}
       <div
         className={styles.walkerContainer}
-        style={{ top: walkerTop }}
         aria-label="Toastmasters mascot"
       >
         {/* Speech bubble — always visible, context-aware */}
