@@ -4,13 +4,13 @@ import styles from './Navbar.module.css';
 
 /* ── Section navigation ─────────────────────────────── */
 const navLinks = [
-  { label: 'Green Room',    href: '#green-room',   desc: 'About the club',          num: 'I' },
-  { label: 'Constellations', href: '#constellation', desc: 'Meet our members',        num: 'II' },
-  { label: 'Spotlight',     href: '#spotlight',     desc: 'Member achievements',     num: 'III' },
-  { label: 'The Script',    href: '#the-script',    desc: 'Agenda & meeting flow',   num: 'IV' },
-  { label: 'The Ex-Com',    href: '#excom',         desc: 'Executive committee',     num: 'V' },
-  { label: 'Gallery',       href: '#gallery',       desc: 'Photos & memories',       num: 'VI' },
-  { label: 'Encore',        href: '#encore',        desc: 'Join Rock The Talk',      num: 'VII' },
+  { label: 'Green Room', href: '#green-room', desc: 'About the club', num: 'I' },
+  { label: 'Constellations', href: '#constellation', desc: 'Meet our members', num: 'II' },
+  { label: 'Spotlight', href: '#spotlight', desc: 'Member achievements', num: 'III' },
+  { label: 'The Script', href: '#the-script', desc: 'Agenda & meeting flow', num: 'IV' },
+  { label: 'The Ex-Com', href: '#excom', desc: 'Executive committee', num: 'V' },
+  { label: 'Gallery', href: '#gallery', desc: 'Photos & memories', num: 'VI' },
+  { label: 'Encore', href: '#encore', desc: 'Join Rock The Talk', num: 'VII' },
 ];
 
 /* ── Resource links ─────────────────────────────────── */
@@ -21,7 +21,7 @@ const resourceLinks = [
       {
         label: 'Newsletters',
         href: 'https://drive.google.com/drive/folders/1BXOU33_iOBpcMYzZGJkk8lToMmNm9agF',
-        desc: 'Monthly club newsletters',
+        desc: 'Yearly club newsletters',
         icon: (
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z" />
@@ -127,9 +127,9 @@ const resourceLinks = [
 
 /* ── Component ──────────────────────────────────────── */
 export default function Navbar() {
-  const [scrolled, setScrolled]                 = useState(false);
-  const [menuOpen, setMenuOpen]                 = useState(false);
-  const [resourcesOpen, setResourcesOpen]       = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobResourcesOpen, setMobResourcesOpen] = useState(false);
 
   const resourcesRef = useRef<HTMLLIElement>(null);
@@ -178,7 +178,7 @@ export default function Navbar() {
           {/* Club name */}
           <span className={styles.logoWords}>
             <span className={styles.logoRock}>ROCK THE</span>
-            <span className={styles.logoTalk}>TALK</span>
+            <span className={styles.logoTalk}>TALK CLUB</span>
           </span>
         </a>
 
