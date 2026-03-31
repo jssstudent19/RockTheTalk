@@ -5,25 +5,25 @@ const winners = [
   {
     name: 'Rajkumar Gupta',
     contest: 'International Speech Contest',
-    achievement: 'Won at Area level and represented the club at Division level',
+    achievement: 'Area Level',
     photo: '/images/members/Rajkumar.png',
   },
   {
     name: 'Taksha Yadav',
     contest: 'Evaluations Contest',
-    achievement: 'Won at Area level and represented the club at Division level',
+    achievement: 'Area level',
     photo: '/images/members/Taksha.png',
   },
   {
     name: 'Satrajit Kar',
     contest: 'Humorous Speech Contest',
-    achievement: 'Won at Club level and represented the club at Area level',
+    achievement: 'Area level',
     photo: '/images/members/Satrajit.png',
   },
   {
     name: 'Mrinalini Sarabada',
     contest: 'Table Topics Contest',
-    achievement: 'Won at Club level, represented the club, and achieved 3rd place at Area level',
+    achievement: 'Area level',
     photo: '/images/members/Mrinalini.jpg',
   },
 ];
@@ -132,7 +132,7 @@ export default function Spotlight() {
 
         {/* ── CONTEST CHAMPIONS ── */}
         <div className={styles.podiumSection}>
-          <p className={`headline-sm ${styles.sectionLabel}`}> Contest Champions</p>
+          <p className={`headline-sm ${styles.sectionLabel}`}> Contest Champions 2025-2026</p>
 
           <div className={styles.winnersGrid}>
             {winners.map((w) => (
